@@ -20,7 +20,7 @@ public class dbweeew {
     
     public static Connection getConnection() throws SQLException{
         if (connection == null){
-           
+
         }       
         
         return connection;
