@@ -53,7 +53,24 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
 
     @Override
     public void updatePenjual(penjual penjual) throws penjualException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(updatePenjual);
+            statement.setInt(1, penjual.getId_penjual());
+            statement.setString(2, penjual.getNama_penjual());
+            statement.executeUpdate();
+                    
+        } catch (SQLException e) {
+            throw new penjualException(e.getMessage());
+        }finally{
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                }
+            }
+            
+        }
     }
 
     @Override
