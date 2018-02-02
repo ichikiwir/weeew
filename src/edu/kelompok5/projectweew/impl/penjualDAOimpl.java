@@ -10,6 +10,7 @@ import edu.kelompok5.projectweew.error.penjualException;
 import edu.kelompok5.projectweew.service.PenjualDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -22,8 +23,8 @@ private Connection connection;
 private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJUAL)VALUES(?,?)";
     private final String updatePenjual = "UPDATE PENJUAL SET ID_PENJUAL=?, NAMA_PENJUAL=? WHERE ID_PENJUAL=?";
     private final String deletePenjual = "DELETE FROM PENJUAL WHERE ID_PENJUAL=?";   
-    private final String getById = "SELECT * FROM PENJUAL WHERE ID_PENJUAL=?";
-    private final String getByNama = "SELECT * FROM PENJUAL WHERE NAMA_PENJUAL=?";
+    private final String getByIdPenjual = "SELECT * FROM PENJUAL WHERE ID_PENJUAL=?";
+    private final String getByNamaPenjual = "SELECT * FROM PENJUAL WHERE NAMA_PENJUAL=?";
     private final String selectAll="SELECT * FROM PENJUAL";
 
     public penjualDAOimpl(Connection connection) {
@@ -75,22 +76,91 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
 
     @Override
     public void deletePenjual(Integer id_penjual) throws penjualException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(deletePenjual);
+            statement.setInt(1, id_penjual);
+            
+            statement.executeUpdate();
+                    
+        } catch (SQLException e) {
+            throw new penjualException(e.getMessage());
+        }finally{
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                }
+            }
+            
+        }
     }
 
     @Override
     public penjual getPenjual(Integer id_penjual) throws penjualException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(getByIdPenjual);
+            statement.setInt(1, id_penjual);
+           ResultSet result = statement.executeQuery();
+           penjual penjual = null;
+           
+            if (result.next()) {
+                penjual = new penjual();
+                penjual.setId_penjual(result.getInt("ID_PENJUAL"));
+                 penjual.setNama_penjual(result.getString("NAMA_PENJUAL"));
+                
+            } else{
+                throw new penjualException ("Penjual dengan id "+id_penjual+" tidak ditemukan");
+            }
+           return penjual; 
+        } catch (SQLException e) {
+            throw new penjualException(e.getMessage());
+        }finally{
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                }
+            }
+            
+        }
     }
 
     @Override
     public penjual getPenjual(String nama_penjual) throws penjualException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(getByNamaPenjual);
+            statement.setString(1, nama_penjual);
+           ResultSet result = statement.executeQuery();
+           penjual penjual = null;
+           
+            if (result.next()) {
+                penjual = new penjual();
+                penjual.setId_penjual(result.getInt("ID_PENJUAL"));
+                 penjual.setNama_penjual(result.getString("NAMA_PENJUAL"));
+                
+            } else{
+                throw new penjualException ("Penjual dengan nama "+nama_penjual+" tidak ditemukan");
+            }
+           return penjual; 
+        } catch (SQLException e) {
+            throw new penjualException(e.getMessage());
+        }finally{
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                }
+            }
+            
+        }  
     }
 
     @Override
     public List<penjual> selectAllPenjual() throws penjualException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }
