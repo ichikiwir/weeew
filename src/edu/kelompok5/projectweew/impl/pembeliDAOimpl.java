@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +29,7 @@ public class pembeliDAOimpl implements PembeliDAO {
     private final String deletePembeli = "DELETE FROM PEMBELI WHERE ID_PEMBELI=?";   
     private final String getById = "SELECT * FROM PEMBELI WHERE ID_PEMBELI=?";
     private final String getByNohp = "SELECT * FROM PEMBELI WHERE NOHP_PEMBELI=?";
-    
+    private final String selectAll="SELECT * FROM PEMBELI";
     
     
     public pembeliDAOimpl(Connection connection) {
@@ -165,7 +167,34 @@ public class pembeliDAOimpl implements PembeliDAO {
 
     @Override
     public List<pembeli> selectAllPembeli() throws pembeliException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Statement statement = null;
+       
+       List <pembeli> list = new ArrayList<pembeli>();
+       
+        try {
+            statement = connection.createStatement();
+           
+           ResultSet result = statement.executeQuery(selectAll);
+           pembeli pembeli = null;
+           
+            while (result.next()) {
+                pembeli = new pembeli();
+                pembeli.setId_pembeli(result.getInt("ID_PEMBELI"));
+                 pembeli.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
+                list.add(pembeli);
+            }
+            return list;                   
+        } catch (SQLException e) {
+            throw new pembeliException(e.getMessage());
+        }finally{
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                }
+            }
+            
+        }
     }
     
 }
