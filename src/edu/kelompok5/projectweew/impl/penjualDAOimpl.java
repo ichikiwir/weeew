@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -160,7 +162,35 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
 
     @Override
     public List<penjual> selectAllPenjual() throws penjualException {
-        
+        Statement statement = null;
+       
+       List <penjual> list = new ArrayList<penjual>();
+       
+        try {
+            statement = connection.createStatement();
+           
+           ResultSet result = statement.executeQuery(selectAll);
+           penjual penjual = null;
+           
+            while (result.next()) {
+                penjual = new penjual();
+                penjual.setId_penjual(result.getInt("ID_PENJUAL"));
+                 penjual.setNama_penjual(result.getString("NAMA_PENJUAL"));
+                list.add(penjual);
+            }
+            return list;                   
+        } catch (SQLException e) {
+            throw new penjualException(e.getMessage());
+        }finally{
+            if(statement!=null){
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                }
+            }
+            
+        }
+    }
     }
     
 }
