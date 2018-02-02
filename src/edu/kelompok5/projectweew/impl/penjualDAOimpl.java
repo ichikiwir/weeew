@@ -193,4 +193,6 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
     }
     }
     
-}
+
+
+
