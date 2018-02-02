@@ -20,6 +20,7 @@ public class transaksi {
     private String hasil;
     private Date tanggal;
 
+    
     public Integer getId_pembeli() {
         return id_pembeli;
     }

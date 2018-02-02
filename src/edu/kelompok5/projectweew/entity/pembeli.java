@@ -17,6 +17,15 @@ public class pembeli {
     
     private Integer id_pembeli ;
     private String nohp_pembeli;
+    
+    public pembeli (){
+        
+    }
+
+    public pembeli(String nohp_pembeli) {
+        this.nohp_pembeli = nohp_pembeli;
+    }
+    
 
     public Integer getId_pembeli() {
         return id_pembeli;

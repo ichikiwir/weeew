@@ -17,6 +17,19 @@ public class penjual {
     private Integer id_penjual;
     private String nama_penjual;
 
+   public penjual(){
+       
+   }
+
+    public penjual(Integer id_penjual, String nama_penjual) {
+        this.id_penjual = id_penjual;
+        this.nama_penjual = nama_penjual;
+    }
+
+    
+
+    
+    
     public Integer getId_penjual() {
         return id_penjual;
     }
