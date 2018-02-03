@@ -29,6 +29,7 @@ public class Jual extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -46,6 +47,14 @@ public class Jual extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 310, 30));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/transaksi.png"))); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/no.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 70, 60));
@@ -91,6 +100,12 @@ public class Jual extends javax.swing.JFrame {
     this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    main n = new main();
+    n.setVisible(true);
+    this.setVisible(false);
+    }//GEN-LAST:event_jLabel11MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -129,6 +144,7 @@ public class Jual extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
