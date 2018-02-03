@@ -36,14 +36,28 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
     public void insertPenjual(penjual penjual) throws penjualException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(insertPenjual);
             statement.setInt(1, penjual.getId_penjual());
             statement.setString(2, penjual.getNama_penjual());
             statement.executeUpdate();
+            connection.commit();
                     
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new penjualException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -58,14 +72,28 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
     public void updatePenjual(penjual penjual) throws penjualException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(updatePenjual);
             statement.setInt(1, penjual.getId_penjual());
             statement.setString(2, penjual.getNama_penjual());
             statement.executeUpdate();
+            connection.commit();
                     
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new penjualException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -80,14 +108,28 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
     public void deletePenjual(Integer id_penjual) throws penjualException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(deletePenjual);
             statement.setInt(1, id_penjual);
             
             statement.executeUpdate();
+            connection.commit();
                     
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new penjualException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -102,6 +144,7 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
     public penjual getPenjual(Integer id_penjual) throws penjualException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(getByIdPenjual);
             statement.setInt(1, id_penjual);
            ResultSet result = statement.executeQuery();
@@ -115,10 +158,23 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
             } else{
                 throw new penjualException ("Penjual dengan id "+id_penjual+" tidak ditemukan");
             }
+            connection.commit();
            return penjual; 
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new penjualException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -133,6 +189,7 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
     public penjual getPenjual(String nama_penjual) throws penjualException {
       PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(getByNamaPenjual);
             statement.setString(1, nama_penjual);
            ResultSet result = statement.executeQuery();
@@ -146,10 +203,23 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
             } else{
                 throw new penjualException ("Penjual dengan nama "+nama_penjual+" tidak ditemukan");
             }
+            connection.commit();
            return penjual; 
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new penjualException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -157,7 +227,7 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
                 }
             }
             
-        }  
+        }
     }
 
     @Override
@@ -167,6 +237,7 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
        List <penjual> list = new ArrayList<penjual>();
        
         try {
+            connection.setAutoCommit(false);
             statement = connection.createStatement();
            
            ResultSet result = statement.executeQuery(selectAll);
@@ -178,10 +249,23 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
                  penjual.setNama_penjual(result.getString("NAMA_PENJUAL"));
                 list.add(penjual);
             }
+            connection.commit();
             return list;                   
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new penjualException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -191,7 +275,7 @@ private final String insertPenjual = "INSERT INTO PENJUAL (ID_PENJUAL,NAMA_PENJU
             
         }
     }
-    }
+}
     
 
 

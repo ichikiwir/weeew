@@ -6,6 +6,9 @@
 package edu.kelompok5.projectweew.main;
 
 import edu.kelompok5.projectweew.database.dbweeew;
+import edu.kelompok5.projectweew.entity.pembeli;
+import edu.kelompok5.projectweew.error.pembeliException;
+import edu.kelompok5.projectweew.service.PembeliDAO;
 import java.sql.SQLException;
 
 /**
@@ -17,10 +20,17 @@ public class ProjectWeeew {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, pembeliException {
         // TODO code application logic here
         
-        dbweeew.getConnection();
+       PembeliDAO pem = dbweeew.getPembeliDAO();
+       pembeli pembeli = new pembeli();
+       pembeli.setNohp_pembeli("082117554742");
+       pem.insertPembeli(pembeli);
+        
+       
+       
+       
     }
     
 }

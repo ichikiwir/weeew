@@ -14,16 +14,16 @@ import java.util.List;
  * @author Naufal Zayn M
  */
 public interface TransaksiDAO {
-    public void insertPenjual(transaksi transaksi) throws transaksiException;
+    public void insertTransaksi(transaksi transaksi) throws transaksiException;
 
-    public void updatePenjual(transaksi transaksi) throws transaksiException;
+    public void updateTransaksi(transaksi transaksi) throws transaksiException;
 
-    public void deletePenjual(Integer id_penjual) throws transaksiException;
+    public void deleteTransaksi(Integer id_pembeli) throws transaksiException;
 
-    public transaksi getPenjual(Integer id_penjual) throws transaksiException;
+    public transaksi getTransaksi(Integer id_pembeli) throws transaksiException;
 
-    public transaksi getPenjual(String nama_penjual) throws transaksiException;
+    public transaksi getTransaksi(String hasil) throws transaksiException;
 
-    public List<transaksi> selectAllPenjual() throws transaksiException;
+    public List<transaksi> selectAllTransaksi() throws transaksiException;
     
 }

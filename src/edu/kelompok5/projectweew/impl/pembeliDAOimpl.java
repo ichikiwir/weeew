@@ -42,13 +42,29 @@ public class pembeliDAOimpl implements PembeliDAO {
     public void insertPembeli(pembeli pembeli) throws pembeliException {
         PreparedStatement statement = null;
         try {
+            
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(insertPembeli);
             statement.setString(1, pembeli.getNohp_pembeli());
             statement.executeUpdate();
+            
+            connection.commit();
                     
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new pembeliException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -63,14 +79,27 @@ public class pembeliDAOimpl implements PembeliDAO {
     public void updatePembeli(pembeli pembeli) throws pembeliException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(updatePembeli);
             statement.setString(1, pembeli.getNohp_pembeli());
             statement.setInt(2,pembeli.getId_pembeli());
             statement.executeUpdate();
-                    
+                     connection.commit();
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new pembeliException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -85,13 +114,26 @@ public class pembeliDAOimpl implements PembeliDAO {
     public void deletePembeli(Integer id_pembeli) throws pembeliException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(deletePembeli);
             statement.setInt(1, id_pembeli);
             statement.executeUpdate();
-                    
+                 connection.commit();    
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new pembeliException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -106,6 +148,7 @@ public class pembeliDAOimpl implements PembeliDAO {
     public pembeli getPembeli(Integer id_pembeli) throws pembeliException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(getById);
             statement.setInt(1, id_pembeli);
            ResultSet result = statement.executeQuery();
@@ -119,10 +162,23 @@ public class pembeliDAOimpl implements PembeliDAO {
             } else{
                 throw new pembeliException ("Pembeli dengan id "+id_pembeli+" tidak ditemukan");
             }
+             connection.commit();
            return pembeli; 
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new pembeliException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -137,6 +193,7 @@ public class pembeliDAOimpl implements PembeliDAO {
     public pembeli getPembeli(String nohp_pembeli) throws pembeliException {
         PreparedStatement statement = null;
         try {
+            connection.setAutoCommit(false);
             statement = connection.prepareStatement(getByNohp);
             statement.setString(1, nohp_pembeli );
            ResultSet result = statement.executeQuery();
@@ -151,10 +208,23 @@ public class pembeliDAOimpl implements PembeliDAO {
                 throw new pembeliException ("Pembeli dengan no hp "+nohp_pembeli+" tidak ditemukan");
             
             }
+             connection.commit();
             return pembeli;                   
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new pembeliException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -172,6 +242,7 @@ public class pembeliDAOimpl implements PembeliDAO {
        List <pembeli> list = new ArrayList<pembeli>();
        
         try {
+            connection.setAutoCommit(false);
             statement = connection.createStatement();
            
            ResultSet result = statement.executeQuery(selectAll);
@@ -183,10 +254,23 @@ public class pembeliDAOimpl implements PembeliDAO {
                  pembeli.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
                 list.add(pembeli);
             }
+             connection.commit();
             return list;                   
         } catch (SQLException e) {
+            
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+            }
+            
             throw new pembeliException(e.getMessage());
         }finally{
+            
+            try {
+                connection.setAutoCommit(true);
+            } catch (SQLException e) {
+            }
+            
             if(statement!=null){
                 try {
                     statement.close();
@@ -195,6 +279,6 @@ public class pembeliDAOimpl implements PembeliDAO {
             }
             
         }
-    }
     
+}
 }
