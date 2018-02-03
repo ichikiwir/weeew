@@ -34,7 +34,6 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         idpenjual = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,16 +56,15 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/bg.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -110, 1230, 910));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 790, 680));
 
         idpenjual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/id.png"))); // NOI18N
         jLabel5.setText("jLabel5");
         idpenjual.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 250, 90));
-        idpenjual.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 280, 40));
 
-        getContentPane().add(idpenjual, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 710));
+        getContentPane().add(idpenjual, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -116,6 +114,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
