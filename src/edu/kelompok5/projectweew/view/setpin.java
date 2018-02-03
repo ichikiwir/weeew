@@ -74,7 +74,7 @@ public class setpin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-s    main n = new main();
+    main n = new main();
     n.setVisible(true);
     this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked

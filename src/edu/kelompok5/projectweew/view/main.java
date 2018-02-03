@@ -91,7 +91,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-       main n = new main();
+      Login n = new Login();
        n.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
