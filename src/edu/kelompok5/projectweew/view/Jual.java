@@ -109,6 +109,11 @@ public class Jual extends javax.swing.JFrame {
         getContentPane().add(cepe, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, -1, -1));
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
+            }
+        });
         getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/5k.png"))); // NOI18N
@@ -196,6 +201,10 @@ public class Jual extends javax.swing.JFrame {
     private void cepeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cepeActionPerformed
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+   this.setVisible(false);
+    }//GEN-LAST:event_closeMouseExited
 
     /**
      * @param args the command line arguments

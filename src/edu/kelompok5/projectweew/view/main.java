@@ -119,7 +119,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
-        // TODO add your handling code here:
+       this.setVisible(false);
     }//GEN-LAST:event_closeMouseExited
 
     /**

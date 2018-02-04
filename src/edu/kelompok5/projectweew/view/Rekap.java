@@ -59,6 +59,11 @@ public class Rekap extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 250));
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
+            }
+        });
         jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/bacc.png"))); // NOI18N
@@ -86,6 +91,10 @@ public class Rekap extends javax.swing.JFrame {
     n.setVisible(true);
     this.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+this.setVisible(false);
+    }//GEN-LAST:event_closeMouseExited
 
     /**
      * @param args the command line arguments
