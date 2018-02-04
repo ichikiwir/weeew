@@ -6,6 +6,7 @@
 package edu.kelompok5.projectweew.view;
 
 import edu.kelompok5.projectweew.model.jualModel;
+import java.awt.Color;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -75,6 +76,8 @@ public class Jual extends javax.swing.JFrame {
         gocap = new javax.swing.JRadioButton();
         cepe = new javax.swing.JRadioButton();
         dualima = new javax.swing.JRadioButton();
+        BerhasilBtn = new javax.swing.JRadioButton();
+        TBerhasilBtn = new javax.swing.JRadioButton();
         close = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         transaksi = new javax.swing.JLabel();
@@ -151,6 +154,22 @@ public class Jual extends javax.swing.JFrame {
         grupButton.add(dualima);
         getContentPane().add(dualima, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
+        BerhasilBtn.setText("Berhasil?");
+        BerhasilBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BerhasilBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BerhasilBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
+
+        TBerhasilBtn.setText("Tidak Berhasil?");
+        TBerhasilBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TBerhasilBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(TBerhasilBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -168,7 +187,7 @@ public class Jual extends javax.swing.JFrame {
                 transaksiMouseClicked(evt);
             }
         });
-        getContentPane().add(transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
+        getContentPane().add(transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/25.png"))); // NOI18N
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, -1, -1));
@@ -263,6 +282,14 @@ public class Jual extends javax.swing.JFrame {
    this.setVisible(false);
     }//GEN-LAST:event_closeMouseExited
 
+    private void BerhasilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BerhasilBtnActionPerformed
+    BerhasilBtn.setBackground(new Color (0,0,0,0));
+    }//GEN-LAST:event_BerhasilBtnActionPerformed
+
+    private void TBerhasilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBerhasilBtnActionPerformed
+      TBerhasilBtn.setBackground(new Color(0,0,0,0));
+    }//GEN-LAST:event_TBerhasilBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +326,8 @@ public class Jual extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton BerhasilBtn;
+    private javax.swing.JRadioButton TBerhasilBtn;
     private javax.swing.JRadioButton cebanbtn;
     private javax.swing.JRadioButton cepe;
     private javax.swing.JLabel close;
