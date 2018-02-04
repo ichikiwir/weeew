@@ -12,6 +12,6 @@ package edu.kelompok5.projectweew.model;
 public class jualModel {
     private String nohp_pembeli;
     private String nominal;
-    private String 
+ 
     
 }
