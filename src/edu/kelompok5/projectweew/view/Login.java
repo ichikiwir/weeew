@@ -28,8 +28,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        idpenjuallogin = new javax.swing.JTextField();
+        idpenjualTxt = new javax.swing.JTextField();
         pinTxt = new javax.swing.JTextField();
         penjualTxt = new javax.swing.JTextField();
         okBtn = new javax.swing.JButton();
@@ -37,8 +36,8 @@ public class Login extends javax.swing.JFrame {
         loginh3h3 = new javax.swing.JLabel();
         idpenjualregist = new javax.swing.JLabel();
         close = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Register = new javax.swing.JLabel();
+        Login = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -50,14 +49,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(idpenjuallogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 30));
+        getContentPane().add(idpenjualTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 30));
         getContentPane().add(pinTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 210, 30));
         getContentPane().add(penjualTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 30));
 
         okBtn.setText("OK");
+        okBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                okBtnMouseClicked(evt);
+            }
+        });
         getContentPane().add(okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, -1, -1));
 
         oklogin.setText("ok");
@@ -69,6 +70,11 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(oklogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 50, -1));
 
         loginh3h3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/Logineuy.png"))); // NOI18N
+        loginh3h3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginh3h3MouseEntered(evt);
+            }
+        });
         getContentPane().add(loginh3h3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         idpenjualregist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/regissss.png"))); // NOI18N
@@ -87,21 +93,21 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/register.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        Register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/register.png"))); // NOI18N
+        Register.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                RegisterMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, 70));
+        getContentPane().add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, 70));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/login.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        Login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/login.png"))); // NOI18N
+        Login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                LoginMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, 60));
+        getContentPane().add(Login, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/wew2.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -10, -1, -1));
@@ -113,16 +119,16 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
 loginh3h3.setVisible(true);
 idpenjualregist.setVisible(false);
 pinTxt.setVisible(false);
 penjualTxt.setVisible(false);
 okBtn.setVisible(false);
 oklogin.setVisible(true);
-idpenjuallogin.setVisible(true);
+idpenjualTxt.setVisible(true);
 
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_LoginMouseClicked
 
     private void idpenjualregistMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idpenjualregistMouseReleased
       AnimationClass AC = new AnimationClass();
@@ -134,12 +140,15 @@ idpenjuallogin.setVisible(true);
 this.setVisible(false);       
     }//GEN-LAST:event_closeMouseExited
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseClicked
      idpenjualregist.setVisible(true);
      pinTxt.setVisible(true);
      penjualTxt.setVisible(true);
      okBtn.setVisible(true);
-    }//GEN-LAST:event_jLabel4MouseClicked
+     loginh3h3.setVisible(false);
+     oklogin.setVisible(false);
+     idpenjualTxt.setVisible(false);
+    }//GEN-LAST:event_RegisterMouseClicked
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
      idpenjualregist.setVisible(false);
@@ -148,7 +157,8 @@ this.setVisible(false);
      okBtn.setVisible(false);
      loginh3h3.setVisible(false);
      oklogin.setVisible(false);
-     idpenjuallogin.setVisible(false);
+     idpenjualTxt.setVisible(false);
+ 
      
      
     }//GEN-LAST:event_formMouseEntered
@@ -158,6 +168,16 @@ this.setVisible(false);
         n.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_okloginMouseClicked
+
+    private void okBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okBtnMouseClicked
+         main n = new main();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_okBtnMouseClicked
+
+    private void loginh3h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginh3h3MouseEntered
+        this.setVisible(true);
+    }//GEN-LAST:event_loginh3h3MouseEntered
 
     /**
      * @param args the command line arguments
@@ -193,14 +213,13 @@ this.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Login;
+    private javax.swing.JLabel Register;
     private javax.swing.JLabel close;
-    private javax.swing.JTextField idpenjuallogin;
+    private javax.swing.JTextField idpenjualTxt;
     private javax.swing.JLabel idpenjualregist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel loginh3h3;
     private javax.swing.JButton okBtn;
     private javax.swing.JToggleButton oklogin;
