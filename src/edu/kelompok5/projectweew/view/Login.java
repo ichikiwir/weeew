@@ -132,6 +132,7 @@ idpenjualTxt.setVisible(true);
     }//GEN-LAST:event_LoginMouseClicked
 
     private void idpenjualregistMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idpenjualregistMouseReleased
+
       
       
     }//GEN-LAST:event_idpenjualregistMouseReleased

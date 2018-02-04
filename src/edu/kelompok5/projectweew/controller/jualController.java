@@ -6,6 +6,7 @@
 package edu.kelompok5.projectweew.controller;
 
 import edu.kelompok5.projectweew.model.jualModel;
+import edu.kelompok5.projectweew.view.Rekap;
 
 /**
  *
@@ -18,5 +19,7 @@ public class jualController {
     public void setModel(jualModel model) {
         this.model = model;
     }
+    
+    
     
 }

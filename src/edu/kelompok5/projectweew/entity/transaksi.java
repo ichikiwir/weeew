@@ -17,6 +17,7 @@ public class transaksi {
     private Integer id_pembeli;
     private Integer id_penjual;
     private String nohp_pembeli;
+    
     private String hasil;
     private Date tanggal;
 

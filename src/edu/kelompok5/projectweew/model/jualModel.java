@@ -21,6 +21,7 @@ public class jualModel {
     private String nominal;
     private String nohp_pembeli;
     private String pin;
+    private Integer id;
 
     private jualListener listener;
 
@@ -30,6 +31,14 @@ public class jualModel {
 
     public void setListener(jualListener listener) {
         this.listener = listener;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getPin() {
@@ -105,4 +114,9 @@ public class jualModel {
         fireOnDelete();
     }
 
+    public void resetPembeli() {
+        setId(0);
+        setNohp_pembeli("");
+        setNominal("");
+    }
 }

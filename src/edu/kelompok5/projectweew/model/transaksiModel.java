@@ -29,7 +29,7 @@ public class transaksiModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 6;
     }
 
     public boolean add(transaksi e) {
@@ -44,19 +44,19 @@ public class transaksiModel extends AbstractTableModel {
         return list.get(index);
     }
 
-    public transaksi set(int i, transaksi e) {
+    public transaksi set(int index, transaksi e) {
         try {
-            return list.set(i, e);
+            return list.set(index, e);
         } finally {
-            fireTableRowsUpdated(i, i);
+            fireTableRowsUpdated(index, index);
         }
     }
 
-    public transaksi remove(int i) {
+    public transaksi remove(int index) {
         try {
-             return list.remove(i);
+             return list.remove(index);
         } finally {
-            fireTableRowsDeleted(i, i);
+            fireTableRowsDeleted(index, index);
         }
     }
 
@@ -87,9 +87,11 @@ public class transaksiModel extends AbstractTableModel {
                 return list.get(rowIndex).getId_penjual();
             case 2:
                 return list.get(rowIndex).getNohp_pembeli();
-            case 3:
-                return list.get(rowIndex).getHasil();
+                case 3:
+                return list.get(rowIndex);
             case 4:
+                return list.get(rowIndex).getHasil();
+            case 5:
                 return list.get(rowIndex).getTanggal();
             default:
                 return null;
