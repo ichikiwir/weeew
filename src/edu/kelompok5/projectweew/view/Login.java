@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package edu.kelompok5.projectweew.view;
-
+import AppPackage.AnimationClass;
 /**
  *
  * @author ASUS X
@@ -17,8 +17,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         
-        idpenjual.getAlignmentX();
-        idpenjual.getAligmentY();
+ 
+
         
     }
 
@@ -31,13 +31,15 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        idpenjual = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/idpenjual.png"))); // NOI18N
+        jLabel6.setAlignmentY(0.0F);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -63,20 +65,13 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/bg.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 790, 680));
 
-        idpenjual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/id.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        idpenjual.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 250, 90));
-
-        getContentPane().add(idpenjual, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 600));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        // TODO add your handling code here:
+       AnimationClass AC = new AnimationClass();
+       AC.jLabelXRight(0, ERROR, WIDTH, NORMAL, jLabel1);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     /**
@@ -113,12 +108,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel idpenjual;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
