@@ -262,6 +262,7 @@ public class Jual extends javax.swing.JFrame {
                 new Jual().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
