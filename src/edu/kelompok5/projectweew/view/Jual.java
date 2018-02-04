@@ -21,17 +21,7 @@ public class Jual extends javax.swing.JFrame {
      */
     public Jual() {
         initComponents();
-        gocengbtn.setActionCommand("5");
-        cebanbtn.setActionCommand("10");
-        duacebanbtn.setActionCommand("20");
-        dualima.setActionCommand("25");
-        gocap.setActionCommand("50");
-        cepe.setActionCommand("100");
-        
-        jualModel j = new jualModel();
-        
-         ButtonGroup grupbutton =new ButtonGroup();
-        j.setNominal(grupbutton.getSelection().getActionCommand());
+       
     }
 
     public JRadioButton getCebanbtn() {
@@ -226,6 +216,7 @@ public class Jual extends javax.swing.JFrame {
         main n = new main();
     n.setVisible(true);
     this.setVisible(false);
+    
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
@@ -301,6 +292,7 @@ public class Jual extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Jual().setVisible(true);
             }

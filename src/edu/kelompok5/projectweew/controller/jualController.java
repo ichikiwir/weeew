@@ -6,24 +6,17 @@
 package edu.kelompok5.projectweew.controller;
 
 import edu.kelompok5.projectweew.model.jualModel;
-import edu.kelompok5.projectweew.view.Jual;
 
 /**
  *
  * @author Naufal Zayn M
  */
 public class jualController {
+    
     private jualModel model;
 
     public void setModel(jualModel model) {
         this.model = model;
     }
     
-    public void transaksi(Jual transaksi){
-        
-    }
-    
-    
- 
-  
 }
