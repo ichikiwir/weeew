@@ -32,6 +32,6 @@ public class Pembeli {
     
     private ModelRegister model;
     private String id_pembeli;
-    
+
   
 }

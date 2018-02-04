@@ -31,7 +31,7 @@ public class Jual extends javax.swing.JFrame {
         jualModel j = new jualModel();
         
          ButtonGroup grupbutton =new ButtonGroup();
-        j.setNominal(grupbutton.getSelection().getActionCommand());
+
     }
 
     public JRadioButton getCebanbtn() {
@@ -300,10 +300,8 @@ public class Jual extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Jual().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Jual().setVisible(true);
         });
        
          

@@ -60,13 +60,13 @@ public class Rekap extends javax.swing.JFrame {
         Rekap.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         Rekap.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "id_penjual", "id_pembeli", "no_pembeli", "Hasil", "Tanggal"
+                "id_penjual", "id_pembeli", "no_hp", "Nominal", "Hasil", "Tanggal"
             }
         ));
         Rekap.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
