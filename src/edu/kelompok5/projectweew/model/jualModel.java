@@ -17,11 +17,12 @@ import java.sql.SQLException;
  * @author Naufal Zayn M
  */
 public class jualModel {
-    
+
     private String nominal;
     private String nohp_pembeli;
-    
- private jualListener listener;
+    private String pin;
+
+    private jualListener listener;
 
     public jualListener getListener() {
         return listener;
@@ -30,8 +31,14 @@ public class jualModel {
     public void setListener(jualListener listener) {
         this.listener = listener;
     }
- 
- 
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
 
     public String getNominal() {
         return nominal;
@@ -49,52 +56,53 @@ public class jualModel {
         this.nohp_pembeli = nohp_pembeli;
     }
 
-    protected void fireOnChange(){
-        if(listener!=null){
+    protected void fireOnChange() {
+        if (listener != null) {
             listener.onChange(this);
         }
     }
-    protected void fireOnInsert(pembeli pembeli){
-        if(listener!=null){
+
+    protected void fireOnInsert(pembeli pembeli) {
+        if (listener != null) {
             listener.onInsert(pembeli);
         }
     }
-    protected void fireOnUpdate(pembeli pembeli){
-        if(listener!=null){
+
+    protected void fireOnUpdate(pembeli pembeli) {
+        if (listener != null) {
             listener.onUpdate(pembeli);
         }
     }
-    protected void fireOnDelete(){
-        if(listener!=null){
+
+    protected void fireOnDelete() {
+        if (listener != null) {
             listener.onDelete();
         }
-        
-        
+
     }
-    
-            
-    public void insertPembeli() throws SQLException, pembeliException{
-       PembeliDAO dao = dbweeew.getPembeliDAO();
+
+    public void insertPembeli() throws SQLException, pembeliException {
+        PembeliDAO dao = dbweeew.getPembeliDAO();
         pembeli pembeli = new pembeli();
         pembeli.setNohp_pembeli(nohp_pembeli);
-                pembeli.setNominal(nominal);
-                dao.insertPembeli(pembeli);
-                fireOnInsert(pembeli);
+        pembeli.setNominal(nominal);
+        dao.insertPembeli(pembeli);
+        fireOnInsert(pembeli);
     }
-    
-    public void updatePembeli() throws SQLException, pembeliException{
-       PembeliDAO dao = dbweeew.getPembeliDAO();
+
+    public void updatePembeli() throws SQLException, pembeliException {
+        PembeliDAO dao = dbweeew.getPembeliDAO();
         pembeli pembeli = new pembeli();
         pembeli.setNohp_pembeli(nohp_pembeli);
-                pembeli.setNominal(nominal);
-                dao.updatePembeli(pembeli);
-                fireOnUpdate(pembeli);
+        pembeli.setNominal(nominal);
+        dao.updatePembeli(pembeli);
+        fireOnUpdate(pembeli);
     }
-    
-     public void deletePembeli() throws SQLException, pembeliException{
-       PembeliDAO dao = dbweeew.getPembeliDAO();
+
+    public void deletePembeli() throws SQLException, pembeliException {
+        PembeliDAO dao = dbweeew.getPembeliDAO();
         dao.deletePembeli(nohp_pembeli);
         fireOnDelete();
     }
-    
+
 }

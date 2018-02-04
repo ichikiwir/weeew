@@ -5,6 +5,7 @@
  */
 package edu.kelompok5.projectweew.view;
 import AppPackage.AnimationClass;
+import edu.kelompok5.projectweew.model.jualModel;
 /**
  *
  * @author ASUS X
@@ -173,6 +174,9 @@ this.setVisible(false);
          main n = new main();
         n.setVisible(true);
         this.setVisible(false);
+        jualModel m = new jualModel();
+        m.setPin(pinTxt.getText());
+        
     }//GEN-LAST:event_okBtnMouseClicked
 
     private void loginh3h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginh3h3MouseEntered
