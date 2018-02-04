@@ -16,6 +16,10 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        
+        idpenjual.getAlignmentX();
+        idpenjual.getAligmentY();
+        
     }
 
     /**
@@ -36,6 +40,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,6 +72,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(idpenjual, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 600));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
