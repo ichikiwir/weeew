@@ -5,7 +5,7 @@
  */
 package edu.kelompok5.projectweew.view;
 
-import edu.kelompok5.projectweew.model.jualModel;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -228,8 +228,7 @@ public class Jual extends javax.swing.JFrame {
     duacebanbtn.setActionCommand("20");
     gocap.setActionCommand("50");
     cepe.setActionCommand("100");
-    jualModel mo = new jualModel();
-    mo.setNominal(grupButton.getSelection().getActionCommand());
+    
     
 
     

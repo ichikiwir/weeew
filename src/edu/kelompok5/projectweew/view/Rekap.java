@@ -21,14 +21,16 @@ public class Rekap extends javax.swing.JFrame {
    
   
     public Rekap() {
-        rekap  = new transaksiModel();
+        
         initComponents();
-        Rekap.setModel(rekap);
+        
     }
 
     public JTable getRekap() {
         return Rekap;
     }
+
+    
     
     
 
@@ -60,6 +62,8 @@ public class Rekap extends javax.swing.JFrame {
         Rekap.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         Rekap.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
