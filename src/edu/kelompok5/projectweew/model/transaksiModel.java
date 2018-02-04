@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class transaksiModel extends AbstractTableModel {
 
-    List<transaksi> list = new ArrayList<transaksi>();
+    List<transaksi> list = new ArrayList<>();
 
     public void setList(List<transaksi> list) {
         this.list = list;
