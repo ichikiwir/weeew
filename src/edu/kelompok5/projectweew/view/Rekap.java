@@ -16,14 +16,12 @@ public class Rekap extends javax.swing.JFrame {
     
    private transaksiModel rekap;
     
-    
-   
    
   
     public Rekap() {
-        
+        rekap = new transaksiModel();
         initComponents();
-        
+        Rekap.setModel(rekap);
     }
 
     public JTable getRekap() {
