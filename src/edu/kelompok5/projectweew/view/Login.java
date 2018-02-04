@@ -18,7 +18,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
         idpenjual.getAlignmentX();
-        idpenjual.getAligmentY();
+        
         
     }
 

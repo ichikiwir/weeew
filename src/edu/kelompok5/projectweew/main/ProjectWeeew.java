@@ -23,12 +23,7 @@ public class ProjectWeeew {
     public static void main(String[] args) throws SQLException, pembeliException {
         // TODO code application logic here
         
-       PembeliDAO pem = dbweeew.getPembeliDAO();
-       pembeli pembeli = new pembeli();
-       pembeli.setNohp_pembeli("082117554742");
-       pem.insertPembeli(pembeli);
-        
-       
+     
        
        
     }
