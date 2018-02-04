@@ -5,18 +5,32 @@
  */
 package edu.kelompok5.projectweew.view;
 
+import edu.kelompok5.projectweew.model.transaksiModel;
+import javax.swing.JTable;
+
 /**
  *
  * @author ASUS X
  */
 public class Rekap extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewJFrame
-     */
+    
+   private transaksiModel rekap;
+    
+    
+   
+   
+  
     public Rekap() {
+        rekap  = new transaksiModel();
         initComponents();
+        Rekap.setModel(rekap);
     }
+
+    public JTable getRekap() {
+        return Rekap;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
