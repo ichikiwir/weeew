@@ -72,8 +72,9 @@ public class Jual extends javax.swing.JFrame {
         tigacebanbtn = new javax.swing.JRadioButton();
         gocap = new javax.swing.JRadioButton();
         cepe = new javax.swing.JRadioButton();
+        close = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        transaksi = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -143,16 +144,24 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(cepe, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, -1, -1));
 
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
+            }
+        });
+        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, -1));
+
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/5k.png"))); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/transaksi.png"))); // NOI18N
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        transaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/transaksi.png"))); // NOI18N
+        transaksi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                transaksiMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
+        getContentPane().add(transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/no.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 70, 60));
@@ -199,11 +208,16 @@ public class Jual extends javax.swing.JFrame {
     this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+    private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
     main n = new main();
     n.setVisible(true);
     this.setVisible(false);
-    }//GEN-LAST:event_jLabel11MouseClicked
+    gocengbtn.setActionCommand("5");
+    cebanbtn.setActionCommand("10");
+    duacebanbtn.setActionCommand("20");
+    gocap.setActionCommand("50");
+    cepe.setActionCommand("100");
+    }//GEN-LAST:event_transaksiMouseClicked
 
     private void tigacebanbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tigacebanbtnActionPerformed
         // TODO add your handling code here:
@@ -228,6 +242,10 @@ public class Jual extends javax.swing.JFrame {
     private void cepeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cepeActionPerformed
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+   this.setVisible(false);
+    }//GEN-LAST:event_closeMouseExited
 
     /**
      * @param args the command line arguments
@@ -262,19 +280,20 @@ public class Jual extends javax.swing.JFrame {
                 new Jual().setVisible(true);
             }
         });
-        
+       
+         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton cebanbtn;
     private javax.swing.JRadioButton cepe;
+    private javax.swing.JLabel close;
     private javax.swing.JRadioButton duacebanbtn;
     private javax.swing.JRadioButton gocap;
     private javax.swing.JRadioButton gocengbtn;
     private javax.swing.ButtonGroup grupButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -287,5 +306,6 @@ public class Jual extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nohp;
     private javax.swing.JRadioButton tigacebanbtn;
+    private javax.swing.JLabel transaksi;
     // End of variables declaration//GEN-END:variables
 }
