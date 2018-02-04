@@ -8,8 +8,10 @@ package edu.kelompok5.projectweew.database;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import edu.kelompok5.projectweew.impl.pembeliDAOimpl;
 import edu.kelompok5.projectweew.impl.penjualDAOimpl;
+import edu.kelompok5.projectweew.impl.transaksiDAOimpl;
 import edu.kelompok5.projectweew.service.PembeliDAO;
 import edu.kelompok5.projectweew.service.PenjualDAO;
+import edu.kelompok5.projectweew.service.TransaksiDAO;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -22,6 +24,7 @@ public class dbweeew {
     private static Connection connection;
     private static PembeliDAO pembeliDAO;
     private static PenjualDAO penjualDAO;
+    private static TransaksiDAO transaksiDAO;
     
     public static Connection getConnection() throws SQLException {
         if (connection == null) {
@@ -51,6 +54,15 @@ public class dbweeew {
         }
         
         return penjualDAO  ;
+    }
+    
+    public static TransaksiDAO getTransaksiDAO() throws SQLException{
+      
+        if (transaksiDAO == null){
+            transaksiDAO = new transaksiDAOimpl(getConnection());
+        }
+        
+        return transaksiDAO  ;
     }
     
 }
