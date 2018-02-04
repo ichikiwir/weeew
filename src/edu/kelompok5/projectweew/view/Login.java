@@ -141,12 +141,6 @@ idpenjualTxt.setVisible(true);
 
     }//GEN-LAST:event_LoginMouseClicked
 
-    private void idpenjualregistMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idpenjualregistMouseReleased
-
-      
-      
-    }//GEN-LAST:event_idpenjualregistMouseReleased
-
     private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
 this.setVisible(false);       
     }//GEN-LAST:event_closeMouseExited
@@ -190,6 +184,10 @@ this.setVisible(false);
     private void loginh3h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginh3h3MouseEntered
         this.setVisible(true);
     }//GEN-LAST:event_loginh3h3MouseEntered
+
+    private void idpenjualregistMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idpenjualregistMouseReleased
+
+    }//GEN-LAST:event_idpenjualregistMouseReleased
 
     /**
      * @param args the command line arguments

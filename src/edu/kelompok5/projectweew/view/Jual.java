@@ -5,8 +5,8 @@
  */
 package edu.kelompok5.projectweew.view;
 
-
 import java.awt.Color;
+import javax.swing.ButtonGroup;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -22,7 +22,21 @@ public class Jual extends javax.swing.JFrame {
      */
     public Jual() {
         initComponents();
-       
+        gocengbtn.setActionCommand("5");
+        cebanbtn.setActionCommand("10");
+        duacebanbtn.setActionCommand("20");
+        gocap.setActionCommand("50");
+        cepe.setActionCommand("100");
+        BerhasilBtn.setActionCommand("Berhasil");
+        TBerhasilBtn.setActionCommand("Tidak Berhasil");
+    }
+
+    public ButtonGroup getGrupButton1() {
+        return grupButton1;
+    }
+
+    public ButtonGroup getGrupButton2() {
+        return grupButton2;
     }
 
     public JRadioButton getCebanbtn() {
@@ -49,13 +63,9 @@ public class Jual extends javax.swing.JFrame {
         return tigacebanbtn;
     }
 
-   
-
     public JTextField getNohp() {
         return nohp;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,8 +76,8 @@ public class Jual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupButton = new javax.swing.ButtonGroup();
-        ButtonGroupBT = new javax.swing.ButtonGroup();
+        grupButton1 = new javax.swing.ButtonGroup();
+        grupButton2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         nohp = new javax.swing.JTextField();
         gocengbtn = new javax.swing.JRadioButton();
@@ -104,7 +114,7 @@ public class Jual extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(nohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 310, 30));
 
-        grupButton.add(gocengbtn);
+        grupButton1.add(gocengbtn);
         gocengbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gocengbtnActionPerformed(evt);
@@ -112,7 +122,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(gocengbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
-        grupButton.add(cebanbtn);
+        grupButton1.add(cebanbtn);
         cebanbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cebanbtnActionPerformed(evt);
@@ -120,7 +130,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(cebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
-        grupButton.add(duacebanbtn);
+        grupButton1.add(duacebanbtn);
         duacebanbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 duacebanbtnActionPerformed(evt);
@@ -128,7 +138,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(duacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
-        grupButton.add(tigacebanbtn);
+        grupButton1.add(tigacebanbtn);
         tigacebanbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tigacebanbtnActionPerformed(evt);
@@ -136,7 +146,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(tigacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
-        grupButton.add(gocap);
+        grupButton1.add(gocap);
         gocap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gocapActionPerformed(evt);
@@ -144,7 +154,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(gocap, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, -1));
 
-        grupButton.add(cepe);
+        grupButton1.add(cepe);
         cepe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cepeActionPerformed(evt);
@@ -152,10 +162,10 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(cepe, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, -1, -1));
 
-        grupButton.add(dualima);
+        grupButton1.add(dualima);
         getContentPane().add(dualima, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
-        ButtonGroupBT.add(BerhasilBtn);
+        grupButton2.add(BerhasilBtn);
         BerhasilBtn.setText("Berhasil?");
         BerhasilBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +174,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(BerhasilBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
 
-        ButtonGroupBT.add(TBerhasilBtn);
+        grupButton2.add(TBerhasilBtn);
         TBerhasilBtn.setText("Tidak Berhasil?");
         TBerhasilBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,24 +246,17 @@ public class Jual extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         main n = new main();
-    n.setVisible(true);
-    this.setVisible(false);
-    
+        n.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
-    main n = new main();
-    n.setVisible(true);
-    this.setVisible(false);
-    gocengbtn.setActionCommand("5");
-    cebanbtn.setActionCommand("10");
-    duacebanbtn.setActionCommand("20");
-    gocap.setActionCommand("50");
-    cepe.setActionCommand("100");
-    
-    
+        main n = new main();
+        n.setVisible(true);
+        this.setVisible(false);
 
-    
+
     }//GEN-LAST:event_transaksiMouseClicked
 
     private void tigacebanbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tigacebanbtnActionPerformed
@@ -281,15 +284,15 @@ public class Jual extends javax.swing.JFrame {
     }//GEN-LAST:event_cepeActionPerformed
 
     private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
-   this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_closeMouseExited
 
     private void BerhasilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BerhasilBtnActionPerformed
-    BerhasilBtn.setBackground(new Color (0,0,0,0));
+        BerhasilBtn.setBackground(new Color(0, 0, 0, 0));
     }//GEN-LAST:event_BerhasilBtnActionPerformed
 
     private void TBerhasilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBerhasilBtnActionPerformed
-      TBerhasilBtn.setBackground(new Color(0,0,0,0));
+        TBerhasilBtn.setBackground(new Color(0, 0, 0, 0));
     }//GEN-LAST:event_TBerhasilBtnActionPerformed
 
     /**
@@ -323,13 +326,11 @@ public class Jual extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new Jual().setVisible(true);
         });
-       
-         
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton BerhasilBtn;
-    private javax.swing.ButtonGroup ButtonGroupBT;
     private javax.swing.JRadioButton TBerhasilBtn;
     private javax.swing.JRadioButton cebanbtn;
     private javax.swing.JRadioButton cepe;
@@ -338,7 +339,8 @@ public class Jual extends javax.swing.JFrame {
     private javax.swing.JRadioButton dualima;
     private javax.swing.JRadioButton gocap;
     private javax.swing.JRadioButton gocengbtn;
-    private javax.swing.ButtonGroup grupButton;
+    private javax.swing.ButtonGroup grupButton1;
+    private javax.swing.ButtonGroup grupButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
