@@ -237,6 +237,11 @@ public class Jual extends javax.swing.JFrame {
     duacebanbtn.setActionCommand("20");
     gocap.setActionCommand("50");
     cepe.setActionCommand("100");
+    jualModel mo = new jualModel();
+    mo.setNominal(grupButton.getSelection().getActionCommand());
+    
+
+    
     }//GEN-LAST:event_transaksiMouseClicked
 
     private void tigacebanbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tigacebanbtnActionPerformed
