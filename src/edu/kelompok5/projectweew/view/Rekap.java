@@ -5,8 +5,14 @@
  */
 package edu.kelompok5.projectweew.view;
 
+import edu.kelompok5.projectweew.controller.Controller;
+
+import edu.kelompok5.projectweew.entity.transaksi;
+import edu.kelompok5.projectweew.event.jualListener;
+import edu.kelompok5.projectweew.model.jualModel;
 import edu.kelompok5.projectweew.model.transaksiModel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -14,18 +20,42 @@ import javax.swing.JTable;
  */
 public class Rekap extends javax.swing.JFrame {
     
-   private transaksiModel rekap;
-    
+  
+ 
    
   
     public Rekap() {
-        rekap = new transaksiModel();
+       
         initComponents();
-        Rekap.setModel(rekap);
+        
     }
 
     public JTable getRekap() {
         return Rekap;
+    }
+
+    public JTextField getTxtid() {
+        return txtid;
+    }
+
+    public JTextField getTxthasil() {
+        return txthasil;
+    }
+
+    public JTextField getTxtidpen() {
+        return txtidpen;
+    }
+
+    public JTextField getTxtnohp() {
+        return txtnohp;
+    }
+
+    public JTextField getTxtnominal() {
+        return txtnominal;
+    }
+
+    public JTextField getTxttanggal() {
+        return txttanggal;
     }
 
     
@@ -44,12 +74,17 @@ public class Rekap extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Rekap = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         close = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        txtid = new javax.swing.JTextField();
+        txtidpen = new javax.swing.JTextField();
+        txtnohp = new javax.swing.JTextField();
+        txtnominal = new javax.swing.JTextField();
+        txthasil = new javax.swing.JTextField();
+        txttanggal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -76,10 +111,12 @@ public class Rekap extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 350));
 
-        jButton1.setText("Reset");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, -1));
-
         jButton2.setText("Hapus");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
@@ -104,6 +141,48 @@ public class Rekap extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/main3.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -300, -1, -1));
 
+        txtid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txtidpen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidpenActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtidpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txtnohp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnohpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtnohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txtnominal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnominalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtnominal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txthasil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txthasilActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txthasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txttanggal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttanggalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txttanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -119,6 +198,37 @@ public class Rekap extends javax.swing.JFrame {
     private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
 this.setVisible(false);
     }//GEN-LAST:event_closeMouseExited
+
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_txtidActionPerformed
+
+    private void txtidpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidpenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidpenActionPerformed
+
+    private void txtnohpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnohpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnohpActionPerformed
+
+    private void txtnominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnominalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnominalActionPerformed
+
+    private void txthasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthasilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txthasilActionPerformed
+
+    private void txttanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttanggalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txttanggalActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,12 +269,19 @@ this.setVisible(false);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Rekap;
     private javax.swing.JLabel close;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField txthasil;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtidpen;
+    private javax.swing.JTextField txtnohp;
+    private javax.swing.JTextField txtnominal;
+    private javax.swing.JTextField txttanggal;
     // End of variables declaration//GEN-END:variables
+
+   
 }

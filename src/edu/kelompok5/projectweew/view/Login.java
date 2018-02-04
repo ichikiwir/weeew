@@ -5,6 +5,11 @@
  */
 package edu.kelompok5.projectweew.view;
 
+import edu.kelompok5.projectweew.controller.Controller;
+
+import edu.kelompok5.projectweew.entity.transaksi;
+import edu.kelompok5.projectweew.event.jualListener;
+import edu.kelompok5.projectweew.model.jualModel;
 import javax.swing.JTextField;
 
 
@@ -14,6 +19,7 @@ import javax.swing.JTextField;
  */
 public class Login extends javax.swing.JFrame {
 
+
     /**
      * Creates new form Login
      */
@@ -22,13 +28,9 @@ public class Login extends javax.swing.JFrame {
         
     }
 
-    public JTextField getIdpenjualTxt() {
-        return idpenjualTxt;
-    }
+    
 
-    public JTextField getPenjualTxt() {
-        return penjualTxt;
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,15 +41,12 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         idpenjualTxt = new javax.swing.JTextField();
-        pinTxt = new javax.swing.JTextField();
-        penjualTxt = new javax.swing.JTextField();
-        okBtn = new javax.swing.JButton();
+        nama = new javax.swing.JTextField();
         oklogin = new javax.swing.JToggleButton();
         loginh3h3 = new javax.swing.JLabel();
-        idpenjualregist = new javax.swing.JLabel();
         close = new javax.swing.JLabel();
-        Register = new javax.swing.JLabel();
         Login = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -60,22 +59,21 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(idpenjualTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 30));
-        getContentPane().add(pinTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 210, 30));
-        getContentPane().add(penjualTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 30));
 
-        okBtn.setText("OK");
-        okBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                okBtnMouseClicked(evt);
-            }
-        });
-        getContentPane().add(okBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, -1, -1));
+        jLabel3.setText("NAMA");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        getContentPane().add(idpenjualTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 30));
+        getContentPane().add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 210, 30));
 
         oklogin.setText("ok");
         oklogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 okloginMouseClicked(evt);
+            }
+        });
+        oklogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okloginActionPerformed(evt);
             }
         });
         getContentPane().add(oklogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 50, -1));
@@ -88,14 +86,6 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(loginh3h3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        idpenjualregist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/regissss.png"))); // NOI18N
-        idpenjualregist.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                idpenjualregistMouseReleased(evt);
-            }
-        });
-        getContentPane().add(idpenjualregist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 560));
-
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -103,14 +93,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, -1, -1));
-
-        Register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/register.png"))); // NOI18N
-        Register.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RegisterMouseClicked(evt);
-            }
-        });
-        getContentPane().add(Register, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, 70));
 
         Login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/login.png"))); // NOI18N
         Login.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,10 +114,6 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
 loginh3h3.setVisible(true);
-idpenjualregist.setVisible(false);
-pinTxt.setVisible(false);
-penjualTxt.setVisible(false);
-okBtn.setVisible(false);
 oklogin.setVisible(true);
 idpenjualTxt.setVisible(true);
 
@@ -145,24 +123,8 @@ idpenjualTxt.setVisible(true);
 this.setVisible(false);       
     }//GEN-LAST:event_closeMouseExited
 
-    private void RegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterMouseClicked
-     idpenjualregist.setVisible(true);
-     pinTxt.setVisible(true);
-     penjualTxt.setVisible(true);
-     okBtn.setVisible(true);
-     loginh3h3.setVisible(false);
-     oklogin.setVisible(false);
-     idpenjualTxt.setVisible(false);
-    }//GEN-LAST:event_RegisterMouseClicked
-
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-     idpenjualregist.setVisible(false);
-     pinTxt.setVisible(false);
-     penjualTxt.setVisible(false);
-     okBtn.setVisible(false);
-     loginh3h3.setVisible(false);
-     oklogin.setVisible(false);
-     idpenjualTxt.setVisible(false);
+    
  
      
      
@@ -172,22 +134,16 @@ this.setVisible(false);
         main n = new main();
         n.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_okloginMouseClicked
-
-    private void okBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okBtnMouseClicked
-         main n = new main();
-        n.setVisible(true);
-        this.setVisible(false);
-                
-    }//GEN-LAST:event_okBtnMouseClicked
 
     private void loginh3h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginh3h3MouseEntered
         this.setVisible(true);
     }//GEN-LAST:event_loginh3h3MouseEntered
 
-    private void idpenjualregistMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idpenjualregistMouseReleased
-
-    }//GEN-LAST:event_idpenjualregistMouseReleased
+    private void okloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okloginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_okloginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,16 +180,15 @@ this.setVisible(false);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Login;
-    private javax.swing.JLabel Register;
     private javax.swing.JLabel close;
     private javax.swing.JTextField idpenjualTxt;
-    private javax.swing.JLabel idpenjualregist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel loginh3h3;
-    private javax.swing.JButton okBtn;
+    private javax.swing.JTextField nama;
     private javax.swing.JToggleButton oklogin;
-    private javax.swing.JTextField penjualTxt;
-    private javax.swing.JTextField pinTxt;
     // End of variables declaration//GEN-END:variables
+
+    
 }

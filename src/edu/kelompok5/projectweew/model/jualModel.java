@@ -6,15 +6,9 @@
 package edu.kelompok5.projectweew.model;
 
 import edu.kelompok5.projectweew.database.dbweeew;
-import edu.kelompok5.projectweew.entity.pembeli;
-import edu.kelompok5.projectweew.entity.penjual;
 import edu.kelompok5.projectweew.entity.transaksi;
-import edu.kelompok5.projectweew.error.pembeliException;
-import edu.kelompok5.projectweew.error.penjualException;
 import edu.kelompok5.projectweew.error.transaksiException;
 import edu.kelompok5.projectweew.event.jualListener;
-import edu.kelompok5.projectweew.service.PembeliDAO;
-import edu.kelompok5.projectweew.service.PenjualDAO;
 import edu.kelompok5.projectweew.service.TransaksiDAO;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -31,7 +25,6 @@ public class jualModel {
     private Date tanggal;
     private Integer id_penjual;
     private Integer id_pembeli;
-    private String nama_penjual;
 
     private jualListener listener;
 
@@ -41,15 +34,6 @@ public class jualModel {
 
     public void setListener(jualListener listener) {
         this.listener = listener;
-    }
-
-    public String getNama_penjual() {
-        return nama_penjual;
-    }
-
-    public void setNama_penjual(String nama_penjual) {
-        this.nama_penjual = nama_penjual;
-        fireonChange();
     }
 
     public Integer getId_penjual() {
@@ -114,42 +98,15 @@ public class jualModel {
 
     }
 
-    protected void fireonInsertPembeli(pembeli pembeli) {
-        if (listener != null) {
-            listener.onInsertPembeli(pembeli);
-        }
-
-    }
-
     protected void fireonInsertTransaksi(transaksi transaksi) {
         if (listener != null) {
             listener.onInsertTransaksi(transaksi);
         }
     }
 
-    protected void fireonInsertPenjual(penjual penjual) {
-        if (listener != null) {
-            listener.onInsertPenjual(penjual);
-        }
-    }
-
-    protected void fireonUpdatePembeli(pembeli pembeli) {
-        if (listener != null) {
-            listener.onUpdatePembeli(pembeli);
-        }
-
-    }
-
     protected void fireonUpdateTransaksi(transaksi transaksi) {
         if (listener != null) {
             listener.onUpdateTransaksi(transaksi);
-        }
-
-    }
-
-    protected void fireonUpdatePenjual(penjual penjual) {
-        if (listener != null) {
-            listener.onUpdatePenjual(penjual);
         }
 
     }
@@ -161,75 +118,31 @@ public class jualModel {
 
     }
 
-    public void insertPembeli() throws SQLException, pembeliException {
-        PembeliDAO dao = dbweeew.getPembeliDAO();
-        pembeli pembeli = new pembeli();
-        pembeli.setNohp_pembeli(nohp_pembeli);
-        pembeli.setNominal(nominal);
-        dao.insertPembeli(pembeli);
-        fireonInsertPembeli(pembeli);
-    }
-
     public void insertTransaksi() throws SQLException, transaksiException {
         TransaksiDAO dao = dbweeew.getTransaksiDAO();
         transaksi transaksi = new transaksi();
+        transaksi.setId_penjual(id_penjual);
+        transaksi.setNohp_pembeli(nohp_pembeli);
+        transaksi.setNominal(nominal);
         transaksi.setHasil(hasil);
+        transaksi.setTanggal(tanggal);
         dao.insertTransaksi(transaksi);
         fireonInsertTransaksi(transaksi);
-    }
-
-    public void insertPenjual() throws SQLException, penjualException {
-        PenjualDAO dao = dbweeew.getPenjualDAO();
-        penjual penjual = new penjual();
-        penjual.setId_penjual(id_penjual);
-        dao.insertPenjual(penjual);
-        fireonInsertPenjual(penjual);
     }
 
     public void updateTransaksi() throws SQLException, transaksiException {
         TransaksiDAO dao = dbweeew.getTransaksiDAO();
         transaksi transaksi = new transaksi();
-        transaksi.setHasil(hasil);
-        transaksi.setId_pembeli(id_pembeli);
         transaksi.setId_penjual(id_penjual);
         transaksi.setNohp_pembeli(nohp_pembeli);
         transaksi.setNominal(nominal);
+        transaksi.setHasil(hasil);
         transaksi.setTanggal(tanggal);
+        transaksi.setId_pembeli(id_pembeli);
         dao.updateTransaksi(transaksi);
         fireonUpdateTransaksi(transaksi);
     }
 
-    public void updatePembeli() throws SQLException, pembeliException {
-        PembeliDAO dao = dbweeew.getPembeliDAO();
-        pembeli pembeli = new pembeli();
-        pembeli.setNohp_pembeli(nohp_pembeli);
-        pembeli.setNominal(nominal);
-        pembeli.setId_pembeli(id_pembeli);
-        dao.updatePembeli(pembeli);
-        fireonUpdatePembeli(pembeli);
-    }
-
-    public void updatePenjual() throws SQLException, penjualException {
-        PenjualDAO dao = dbweeew.getPenjualDAO();
-        penjual penjual = new penjual();
-        penjual.setId_penjual(id_penjual);
-        penjual.setNama_penjual(nama_penjual);
-        dao.updatePenjual(penjual);
-        fireonUpdatePenjual(penjual);
-    }
-
-    public void deletePembeli() throws SQLException, pembeliException {
-        PembeliDAO dao = dbweeew.getPembeliDAO();
-        dao.deletePembeli(nohp_pembeli);
-        fireonDelete();
-    }
-    
-    public void deletePenjual() throws SQLException, penjualException {
-        PenjualDAO dao = dbweeew.getPenjualDAO();
-        dao.deletePenjual(id_penjual);
-        fireonDelete();
-    }
-    
     public void deleteTransaksi() throws SQLException, transaksiException {
         TransaksiDAO dao = dbweeew.getTransaksiDAO();
         dao.deleteTransaksi(id_pembeli);

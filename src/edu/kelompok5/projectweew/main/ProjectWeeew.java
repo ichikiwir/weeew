@@ -5,7 +5,7 @@
  */
 package edu.kelompok5.projectweew.main;
 
-import edu.kelompok5.projectweew.error.pembeliException;
+
 import java.sql.SQLException;
 
 
@@ -22,7 +22,7 @@ public class ProjectWeeew {
      * @throws java.sql.SQLException
      * @throws edu.kelompok5.projectweew.error.pembeliException
      */
-    public static void main(String[] args) throws SQLException, pembeliException {
+    public static void main(String[] args)  {
         // TODO code application logic here
         
 

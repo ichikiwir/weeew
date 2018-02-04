@@ -5,6 +5,11 @@
  */
 package edu.kelompok5.projectweew.view;
 
+import edu.kelompok5.projectweew.controller.Controller;
+
+import edu.kelompok5.projectweew.entity.transaksi;
+import edu.kelompok5.projectweew.event.jualListener;
+import edu.kelompok5.projectweew.model.jualModel;
 import java.awt.Color;
 import javax.swing.ButtonGroup;
 
@@ -15,11 +20,10 @@ import javax.swing.JTextField;
  *
  * @author ASUS X
  */
-public class Jual extends javax.swing.JFrame {
+public class Jual extends javax.swing.JFrame{
 
-    /**
-     * Creates new form Jual
-     */
+   private jualModel model;
+   private Controller controller;
     public Jual() {
         initComponents();
         gocengbtn.setActionCommand("5");
@@ -67,6 +71,11 @@ public class Jual extends javax.swing.JFrame {
         return nohp;
     }
 
+    public JTextField getTxtid() {
+        return txtid;
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -103,6 +112,12 @@ public class Jual extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        txtid = new javax.swing.JTextField();
+        txtidpen = new javax.swing.JTextField();
+        txtnohp = new javax.swing.JTextField();
+        txtnominal = new javax.swing.JTextField();
+        txthasil = new javax.swing.JTextField();
+        txttanggal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(726, 540));
@@ -240,6 +255,48 @@ public class Jual extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/main2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-220, -300, 950, -1));
 
+        txtid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txtidpen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidpenActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtidpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txtnohp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnohpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtnohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txtnominal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnominalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtnominal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txthasil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txthasilActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txthasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
+        txttanggal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txttanggalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txttanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -252,10 +309,7 @@ public class Jual extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
-        main n = new main();
-        n.setVisible(true);
-        this.setVisible(false);
-
+       
 
     }//GEN-LAST:event_transaksiMouseClicked
 
@@ -294,6 +348,36 @@ public class Jual extends javax.swing.JFrame {
     private void TBerhasilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBerhasilBtnActionPerformed
         TBerhasilBtn.setBackground(new Color(0, 0, 0, 0));
     }//GEN-LAST:event_TBerhasilBtnActionPerformed
+
+    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_txtidActionPerformed
+
+    private void txtidpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidpenActionPerformed
+        // TODO add your handling code here:
+         setVisible(false);
+    }//GEN-LAST:event_txtidpenActionPerformed
+
+    private void txtnohpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnohpActionPerformed
+        // TODO add your handling code here:
+         setVisible(false);
+    }//GEN-LAST:event_txtnohpActionPerformed
+
+    private void txtnominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnominalActionPerformed
+        // TODO add your handling code here:
+         setVisible(false);
+    }//GEN-LAST:event_txtnominalActionPerformed
+
+    private void txthasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthasilActionPerformed
+        // TODO add your handling code here:
+         setVisible(false);
+    }//GEN-LAST:event_txthasilActionPerformed
+
+    private void txttanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttanggalActionPerformed
+        // TODO add your handling code here:
+         setVisible(false);
+    }//GEN-LAST:event_txttanggalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,5 +441,13 @@ public class Jual extends javax.swing.JFrame {
     private javax.swing.JTextField nohp;
     private javax.swing.JRadioButton tigacebanbtn;
     private javax.swing.JLabel transaksi;
+    private javax.swing.JTextField txthasil;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtidpen;
+    private javax.swing.JTextField txtnohp;
+    private javax.swing.JTextField txtnominal;
+    private javax.swing.JTextField txttanggal;
     // End of variables declaration//GEN-END:variables
+
+   
 }

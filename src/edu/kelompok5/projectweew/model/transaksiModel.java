@@ -39,6 +39,7 @@ public class transaksiModel extends AbstractTableModel {
             fireTableRowsInserted(getRowCount()-1, getRowCount()-1);
         }
     }
+    
 
     public transaksi get(int index) {
         return list.get(index);

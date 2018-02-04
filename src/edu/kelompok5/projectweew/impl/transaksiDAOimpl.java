@@ -23,8 +23,8 @@ import java.util.List;
 public class transaksiDAOimpl implements TransaksiDAO {
 
     private Connection connection;
-    private final String insertTransaksi = "INSERT INTO TRANSAKSI (HASIL,NOMINAL)VALUES(?,?)";
-    private final String updateTransaksi = "UPDATE TRANSAKSI SET HASIL=?,NOMINAL=? WHERE ID_PEMBELI=?";
+    private final String insertTransaksi = "INSERT INTO TRANSAKSI (ID_PENJUAL,NOHP_PEMBELI,HASIL,NOMINAL,TANGGAL)VALUES(?,?,?,?,?)";
+    private final String updateTransaksi = "UPDATE TRANSAKSI SET ID_PENJUAL=?,NOHP_PEMBELI=?,HASIL=?,NOMINAL=? WHERE ID_PEMBELI=?";
     private final String deleteTransaksi = "DELETE FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getById = "SELECT * FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getByHasil = "SELECT * FROM TRANSAKSI WHERE HASIL=?";
@@ -40,8 +40,11 @@ public class transaksiDAOimpl implements TransaksiDAO {
         try {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(insertTransaksi);
-            statement.setString(1, transaksi.getHasil());
-            statement.setString(2, transaksi.getNominal());
+            statement.setInt(1, transaksi.getId_penjual());
+            statement.setString(2, transaksi.getNohp_pembeli());
+            statement.setString(3, transaksi.getHasil());
+            statement.setString(4, transaksi.getNominal());
+            statement.setDate(5, transaksi.getTanggal());
             statement.executeUpdate();
             connection.commit();
 
@@ -64,12 +67,12 @@ public class transaksiDAOimpl implements TransaksiDAO {
         try {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(updateTransaksi);
-            statement.setString(1, transaksi.getHasil());
+            statement.setInt(1, transaksi.getId_penjual());
             statement.setInt(2, transaksi.getId_pembeli());
-            statement.setString(3, transaksi.getNominal());
-            statement.setInt(4, transaksi.getId_penjual());
-            statement.setDate(5, transaksi.getTanggal());
-            statement.setString(6, transaksi.getNohp_pembeli());
+            statement.setString(3, transaksi.getNohp_pembeli());
+            statement.setString(4, transaksi.getNominal());
+            statement.setString(5, transaksi.getHasil());
+            statement.setDate(6, transaksi.getTanggal());
             statement.executeUpdate();
             connection.commit();
 
@@ -122,9 +125,9 @@ public class transaksiDAOimpl implements TransaksiDAO {
             if (result.next()) {
                 transaksi = new transaksi();
                 transaksi.setId_pembeli(result.getInt("ID_PEMBELI"));
-                transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setId_penjual(result.getInt("ID_PENJUAL"));
-                transaksi.setNohp_pembeli(result.getString("HASIL"));
+                transaksi.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
+                transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setNominal(result.getString("NOMINAL"));
                 transaksi.setTanggal(result.getDate("TANGGAL"));
 
@@ -159,9 +162,9 @@ public class transaksiDAOimpl implements TransaksiDAO {
             if (result.next()) {
                 transaksi = new transaksi();
                 transaksi.setId_pembeli(result.getInt("ID_PEMBELI"));
-                transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setId_penjual(result.getInt("ID_PENJUAL"));
-                transaksi.setNohp_pembeli(result.getString("HASIL"));
+                transaksi.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
+                transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setNominal(result.getString("NOMINAL"));
                 transaksi.setTanggal(result.getDate("TANGGAL"));
 
@@ -199,9 +202,9 @@ public class transaksiDAOimpl implements TransaksiDAO {
             while (result.next()) {
                 transaksi = new transaksi();
                 transaksi.setId_pembeli(result.getInt("ID_PEMBELI"));
-                transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setId_penjual(result.getInt("ID_PENJUAL"));
-                transaksi.setNohp_pembeli(result.getString("HASIL"));
+                transaksi.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
+                transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setNominal(result.getString("NOMINAL"));
                 transaksi.setTanggal(result.getDate("TANGGAL"));
                 list.add(transaksi);
