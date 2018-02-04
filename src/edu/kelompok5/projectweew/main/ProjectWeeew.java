@@ -5,11 +5,11 @@
  */
 package edu.kelompok5.projectweew.main;
 
-import edu.kelompok5.projectweew.database.dbweeew;
-import edu.kelompok5.projectweew.entity.pembeli;
 import edu.kelompok5.projectweew.error.pembeliException;
-import edu.kelompok5.projectweew.service.PembeliDAO;
 import java.sql.SQLException;
+
+
+
 
 /**
  *
@@ -19,8 +19,10 @@ public class ProjectWeeew {
 
     /**
      * @param args the command line arguments
+     * @throws java.sql.SQLException
+     * @throws edu.kelompok5.projectweew.error.pembeliException
      */
-    public static void main(String[] args) throws SQLException, pembeliException {
+    public static void main(String[] args) throws SQLException, pembeliException  {
         // TODO code application logic here
         
 
