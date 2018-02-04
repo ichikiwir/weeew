@@ -5,9 +5,6 @@
  */
 package edu.kelompok5.projectweew.model;
 
-import edu.kelompok5.projectweew.entity.transaksi;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -16,86 +13,19 @@ import javax.swing.table.AbstractTableModel;
  */
 public class transaksiModel extends AbstractTableModel {
 
-    List<transaksi> list = new ArrayList<>();
-
-    public void setList(List<transaksi> list) {
-        this.list = list;
-    }
-
     @Override
     public int getRowCount() {
-        return list.size();
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public int getColumnCount() {
-        return 6;
-    }
-
-    public boolean add(transaksi e) {
-        try {
-            return list.add(e);
-        } finally {
-            fireTableRowsInserted(getRowCount()-1, getRowCount()-1);
-        }
-    }
-
-    public transaksi get(int index) {
-        return list.get(index);
-    }
-
-    public transaksi set(int index, transaksi e) {
-        try {
-            return list.set(index, e);
-        } finally {
-            fireTableRowsUpdated(index, index);
-        }
-    }
-
-    public transaksi remove(int index) {
-        try {
-             return list.remove(index);
-        } finally {
-            fireTableRowsDeleted(index, index);
-        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getColumnName(int column) {
-        switch (column) {
-            case 0:
-                return "ID_PEMBELI";
-            case 1:
-                return "ID_PENJUAL";
-            case 2:
-                return "NOHP_PENJUAL";
-            case 3:
-                return "HASIL";
-            case 4:
-                return "TANGGAL";
-            default:
-                return null;
-        }
+    public Object getValueAt(int i, int i1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        switch (columnIndex) {
-            case 0:
-                return list.get(rowIndex).getId_penjual();
-            case 1:
-                return list.get(rowIndex).getId_penjual();
-            case 2:
-                return list.get(rowIndex).getNohp_pembeli();
-                case 3:
-                return list.get(rowIndex);
-            case 4:
-                return list.get(rowIndex).getHasil();
-            case 5:
-                return list.get(rowIndex).getTanggal();
-            default:
-                return null;
-        }
-    }
-
+    
 }

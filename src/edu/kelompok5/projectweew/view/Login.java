@@ -5,7 +5,9 @@
  */
 package edu.kelompok5.projectweew.view;
 
-import edu.kelompok5.projectweew.model.jualModel;
+import javax.swing.JTextField;
+
+
 /**
  *
  * @author ASUS X
@@ -17,7 +19,15 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-     
+        
+    }
+
+    public JTextField getIdpenjualTxt() {
+        return idpenjualTxt;
+    }
+
+    public JTextField getPenjualTxt() {
+        return penjualTxt;
     }
 
     /**
@@ -174,9 +184,7 @@ this.setVisible(false);
          main n = new main();
         n.setVisible(true);
         this.setVisible(false);
-        jualModel m = new jualModel();
-        m.setPin(pinTxt.getText());
-        
+                
     }//GEN-LAST:event_okBtnMouseClicked
 
     private void loginh3h3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginh3h3MouseEntered

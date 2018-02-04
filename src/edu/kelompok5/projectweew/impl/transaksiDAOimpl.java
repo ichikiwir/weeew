@@ -23,8 +23,8 @@ import java.util.List;
 public class transaksiDAOimpl implements TransaksiDAO {
 
     private Connection connection;
-    private final String insertTransaksi = "INSERT INTO TRANSAKSI (HASIL)VALUES(?)";
-    private final String updateTransaksi = "UPDATE TRANSAKSI SET HASIL=? WHERE ID_PEMBELI=?";
+    private final String insertTransaksi = "INSERT INTO TRANSAKSI (HASIL,NOMINAL)VALUES(?,?)";
+    private final String updateTransaksi = "UPDATE TRANSAKSI SET HASIL=?,NOMINAL=? WHERE ID_PEMBELI=?";
     private final String deleteTransaksi = "DELETE FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getById = "SELECT * FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getByHasil = "SELECT * FROM TRANSAKSI WHERE HASIL=?";
@@ -41,6 +41,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(insertTransaksi);
             statement.setString(1, transaksi.getHasil());
+            statement.setString(2, transaksi.getNominal());
             statement.executeUpdate();
             connection.commit();
 
@@ -65,6 +66,10 @@ public class transaksiDAOimpl implements TransaksiDAO {
             statement = connection.prepareStatement(updateTransaksi);
             statement.setString(1, transaksi.getHasil());
             statement.setInt(2, transaksi.getId_pembeli());
+            statement.setString(3, transaksi.getNominal());
+            statement.setInt(4, transaksi.getId_penjual());
+            statement.setDate(5, transaksi.getTanggal());
+            statement.setString(6, transaksi.getNohp_pembeli());
             statement.executeUpdate();
             connection.commit();
 
@@ -90,17 +95,17 @@ public class transaksiDAOimpl implements TransaksiDAO {
             statement.setInt(1, id_pembeli);
             statement.executeUpdate();
             connection.commit();
-                    
+
         } catch (SQLException e) {
             throw new transaksiException(e.getMessage());
-        }finally{
-            if(statement!=null){
+        } finally {
+            if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
                 }
             }
-            
+
         }
     }
 
@@ -111,96 +116,108 @@ public class transaksiDAOimpl implements TransaksiDAO {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(getById);
             statement.setInt(1, id_pembeli);
-           ResultSet result = statement.executeQuery();
-           transaksi transaksi = null;
-           
+            ResultSet result = statement.executeQuery();
+            transaksi transaksi = null;
+
             if (result.next()) {
                 transaksi = new transaksi();
                 transaksi.setId_pembeli(result.getInt("ID_PEMBELI"));
-                 transaksi.setHasil(result.getString("HASIL"));
-                
-            } else{
-                throw new transaksiException ("Transaksi dengan id pembeli "+id_pembeli+" tidak ditemukan");
+                transaksi.setHasil(result.getString("HASIL"));
+                transaksi.setId_penjual(result.getInt("ID_PENJUAL"));
+                transaksi.setNohp_pembeli(result.getString("HASIL"));
+                transaksi.setNominal(result.getString("NOMINAL"));
+                transaksi.setTanggal(result.getDate("TANGGAL"));
+
+            } else {
+                throw new transaksiException("Transaksi dengan id pembeli " + id_pembeli + " tidak ditemukan");
             }
             connection.commit();
-           return transaksi; 
+            return transaksi;
         } catch (SQLException e) {
             throw new transaksiException(e.getMessage());
-        }finally{
-            if(statement!=null){
+        } finally {
+            if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
                 }
             }
-            
+
         }
     }
 
     @Override
     public transaksi getTransaksi(String hasil) throws transaksiException {
-      PreparedStatement statement = null;
+        PreparedStatement statement = null;
         try {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(getByHasil);
             statement.setString(1, hasil);
-           ResultSet result = statement.executeQuery();
-           transaksi transaksi = null;
-           
+            ResultSet result = statement.executeQuery();
+            transaksi transaksi = null;
+
             if (result.next()) {
                 transaksi = new transaksi();
                 transaksi.setId_pembeli(result.getInt("ID_PEMBELI"));
-                 transaksi.setHasil(result.getString("HASIL"));
-                
-            } else{
-                throw new transaksiException ("Transaksi dengan hasil "+hasil+" tidak ditemukan");
+                transaksi.setHasil(result.getString("HASIL"));
+                transaksi.setId_penjual(result.getInt("ID_PENJUAL"));
+                transaksi.setNohp_pembeli(result.getString("HASIL"));
+                transaksi.setNominal(result.getString("NOMINAL"));
+                transaksi.setTanggal(result.getDate("TANGGAL"));
+
+            } else {
+                throw new transaksiException("Transaksi dengan hasil " + hasil + " tidak ditemukan");
             }
             connection.commit();
-           return transaksi; 
+            return transaksi;
         } catch (SQLException e) {
             throw new transaksiException(e.getMessage());
-        }finally{
-            if(statement!=null){
+        } finally {
+            if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
                 }
             }
-            
-        } 
+
+        }
     }
 
     @Override
     public List<transaksi> selectAllTransaksi() throws transaksiException {
-     Statement statement = null;
-       
-       List <transaksi> list = new ArrayList<transaksi>();
-       
+        Statement statement = null;
+
+        List<transaksi> list = new ArrayList<transaksi>();
+
         try {
             connection.setAutoCommit(false);
             statement = connection.createStatement();
-           
-           ResultSet result = statement.executeQuery(selectAll);
-           transaksi penjual = null;
-           
+
+            ResultSet result = statement.executeQuery(selectAll);
+            transaksi transaksi = null;
+
             while (result.next()) {
-                penjual = new transaksi();
-                penjual.setId_penjual(result.getInt("ID_PENJUAL"));
-                 penjual.setHasil(result.getString("HASIL"));
-                list.add(penjual);
+                transaksi = new transaksi();
+                transaksi.setId_pembeli(result.getInt("ID_PEMBELI"));
+                transaksi.setHasil(result.getString("HASIL"));
+                transaksi.setId_penjual(result.getInt("ID_PENJUAL"));
+                transaksi.setNohp_pembeli(result.getString("HASIL"));
+                transaksi.setNominal(result.getString("NOMINAL"));
+                transaksi.setTanggal(result.getDate("TANGGAL"));
+                list.add(transaksi);
             }
             connection.commit();
-            return list;                   
+            return list;
         } catch (SQLException e) {
             throw new transaksiException(e.getMessage());
-        }finally{
-            if(statement!=null){
+        } finally {
+            if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
                 }
             }
-            
-        }    
+
+        }
     }
 }

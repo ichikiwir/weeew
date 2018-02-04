@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="grupButton">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="ButtonGroupBT">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -156,6 +158,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="BerhasilBtn">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="ButtonGroupBT"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Berhasil?"/>
       </Properties>
       <Events>
@@ -169,6 +174,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="TBerhasilBtn">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="ButtonGroupBT"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Tidak Berhasil?"/>
       </Properties>
       <Events>

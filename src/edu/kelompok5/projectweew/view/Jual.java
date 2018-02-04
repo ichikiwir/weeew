@@ -5,9 +5,9 @@
  */
 package edu.kelompok5.projectweew.view;
 
-import edu.kelompok5.projectweew.model.jualModel;
+
 import java.awt.Color;
-import javax.swing.ButtonGroup;
+
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -67,6 +67,7 @@ public class Jual extends javax.swing.JFrame {
     private void initComponents() {
 
         grupButton = new javax.swing.ButtonGroup();
+        ButtonGroupBT = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         nohp = new javax.swing.JTextField();
         gocengbtn = new javax.swing.JRadioButton();
@@ -154,6 +155,7 @@ public class Jual extends javax.swing.JFrame {
         grupButton.add(dualima);
         getContentPane().add(dualima, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
+        ButtonGroupBT.add(BerhasilBtn);
         BerhasilBtn.setText("Berhasil?");
         BerhasilBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +164,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(BerhasilBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
 
+        ButtonGroupBT.add(TBerhasilBtn);
         TBerhasilBtn.setText("Tidak Berhasil?");
         TBerhasilBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,8 +250,7 @@ public class Jual extends javax.swing.JFrame {
     duacebanbtn.setActionCommand("20");
     gocap.setActionCommand("50");
     cepe.setActionCommand("100");
-    jualModel mo = new jualModel();
-    mo.setNominal(grupButton.getSelection().getActionCommand());
+    
     
 
     
@@ -327,6 +329,7 @@ public class Jual extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton BerhasilBtn;
+    private javax.swing.ButtonGroup ButtonGroupBT;
     private javax.swing.JRadioButton TBerhasilBtn;
     private javax.swing.JRadioButton cebanbtn;
     private javax.swing.JRadioButton cepe;
