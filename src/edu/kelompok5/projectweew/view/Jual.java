@@ -5,6 +5,10 @@
  */
 package edu.kelompok5.projectweew.view;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author ASUS X
@@ -18,6 +22,38 @@ public class Jual extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JRadioButton getCebanbtn() {
+        return cebanbtn;
+    }
+
+    public JRadioButton getCepe() {
+        return cepe;
+    }
+
+    public JRadioButton getDuacebanbtn() {
+        return duacebanbtn;
+    }
+
+    public JRadioButton getGocap() {
+        return gocap;
+    }
+
+    public JRadioButton getGocengbtn() {
+        return gocengbtn;
+    }
+
+    public JRadioButton getTigacebanbtn() {
+        return tigacebanbtn;
+    }
+
+   
+
+    public JTextField getNohp() {
+        return nohp;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,9 +63,9 @@ public class Jual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        grupButton = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        nohp = new javax.swing.JTextField();
         gocengbtn = new javax.swing.JRadioButton();
         cebanbtn = new javax.swing.JRadioButton();
         duacebanbtn = new javax.swing.JRadioButton();
@@ -57,9 +93,9 @@ public class Jual extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 310, 30));
+        getContentPane().add(nohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 310, 30));
 
-        buttonGroup1.add(gocengbtn);
+        grupButton.add(gocengbtn);
         gocengbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gocengbtnActionPerformed(evt);
@@ -67,7 +103,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(gocengbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
-        buttonGroup1.add(cebanbtn);
+        grupButton.add(cebanbtn);
         cebanbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cebanbtnActionPerformed(evt);
@@ -75,7 +111,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(cebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
 
-        buttonGroup1.add(duacebanbtn);
+        grupButton.add(duacebanbtn);
         duacebanbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 duacebanbtnActionPerformed(evt);
@@ -83,7 +119,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(duacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, -1));
 
-        buttonGroup1.add(tigacebanbtn);
+        grupButton.add(tigacebanbtn);
         tigacebanbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tigacebanbtnActionPerformed(evt);
@@ -91,7 +127,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(tigacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, -1));
 
-        buttonGroup1.add(gocap);
+        grupButton.add(gocap);
         gocap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gocapActionPerformed(evt);
@@ -99,7 +135,7 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(gocap, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, -1));
 
-        buttonGroup1.add(cepe);
+        grupButton.add(cepe);
         cepe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cepeActionPerformed(evt);
@@ -229,12 +265,12 @@ public class Jual extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton cebanbtn;
     private javax.swing.JRadioButton cepe;
     private javax.swing.JRadioButton duacebanbtn;
     private javax.swing.JRadioButton gocap;
     private javax.swing.JRadioButton gocengbtn;
+    private javax.swing.ButtonGroup grupButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -248,7 +284,7 @@ public class Jual extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nohp;
     private javax.swing.JRadioButton tigacebanbtn;
     // End of variables declaration//GEN-END:variables
 }
