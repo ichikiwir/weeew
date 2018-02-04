@@ -112,14 +112,14 @@ public class pembeliDAOimpl implements PembeliDAO {
             
         }
     }
-
-    @Override
-    public void deletePembeli(Integer id_pembeli) throws pembeliException {
+    
+@Override
+    public void deletePembeli(String nohp_pembeli) throws pembeliException {
         PreparedStatement statement = null;
         try {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(deletePembeli);
-            statement.setInt(1, id_pembeli);
+            statement.setString(1, nohp_pembeli);
             statement.executeUpdate();
                  connection.commit();    
         } catch (SQLException e) {
@@ -285,4 +285,6 @@ public class pembeliDAOimpl implements PembeliDAO {
         }
     
 }
+
+   
 }

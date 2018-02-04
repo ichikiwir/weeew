@@ -93,11 +93,8 @@ public class jualModel {
     
      public void deletePembeli() throws SQLException, pembeliException{
        PembeliDAO dao = dbweeew.getPembeliDAO();
-        pembeli pembeli = new pembeli();
-        pembeli.setNohp_pembeli(nohp_pembeli);
-                pembeli.setNominal(nominal);
-                dao.insertPembeli(pembeli);
-                fireOnInsert(pembeli);
+        dao.deletePembeli(nohp_pembeli);
+        fireOnDelete();
     }
     
 }

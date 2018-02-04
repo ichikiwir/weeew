@@ -19,7 +19,7 @@ public interface PembeliDAO {
 
     public void updatePembeli(pembeli pembeli) throws pembeliException;
 
-    public void deletePembeli(Integer id_pembeli) throws pembeliException;
+    public void deletePembeli(String nohp_pembeli) throws pembeliException;
 
     public pembeli getPembeli(Integer id_pembeli) throws pembeliException;
 
