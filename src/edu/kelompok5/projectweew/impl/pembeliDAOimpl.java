@@ -24,8 +24,8 @@ public class pembeliDAOimpl implements PembeliDAO {
 
     
     private Connection connection;
-    private final String insertPembeli = "INSERT INTO PEMBELI (NOHP_PEMBELI)VALUES(?)";
-    private final String updatePembeli = "UPDATE PEMBELI SET NOHP_PEMBELI=? WHERE ID_PEMBELI=?";
+    private final String insertPembeli = "INSERT INTO PEMBELI (NOHP_PEMBELI,NOMINAL)VALUES(?,?)";
+    private final String updatePembeli = "UPDATE PEMBELI SET NOHP_PEMBELI=?,NOMINAL=? WHERE ID_PEMBELI=?";
     private final String deletePembeli = "DELETE FROM PEMBELI WHERE ID_PEMBELI=?";   
     private final String getById = "SELECT * FROM PEMBELI WHERE ID_PEMBELI=?";
     private final String getByNohp = "SELECT * FROM PEMBELI WHERE NOHP_PEMBELI=?";
@@ -46,6 +46,7 @@ public class pembeliDAOimpl implements PembeliDAO {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(insertPembeli);
             statement.setString(1, pembeli.getNohp_pembeli());
+            statement.setString(2, pembeli.getNominal());
             statement.executeUpdate();
             
             connection.commit();
@@ -82,7 +83,9 @@ public class pembeliDAOimpl implements PembeliDAO {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(updatePembeli);
             statement.setString(1, pembeli.getNohp_pembeli());
-            statement.setInt(2,pembeli.getId_pembeli());
+            statement.setString(2, pembeli.getNominal());
+            statement.setInt(3,pembeli.getId_pembeli());
+            
             statement.executeUpdate();
                      connection.commit();
         } catch (SQLException e) {
@@ -252,6 +255,7 @@ public class pembeliDAOimpl implements PembeliDAO {
                 pembeli = new pembeli();
                 pembeli.setId_pembeli(result.getInt("ID_PEMBELI"));
                  pembeli.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
+                 pembeli.setNominal(result.getString("NOMINAL"));
                 list.add(pembeli);
             }
              connection.commit();

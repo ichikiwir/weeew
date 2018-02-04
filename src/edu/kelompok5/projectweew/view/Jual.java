@@ -5,6 +5,7 @@
  */
 package edu.kelompok5.projectweew.view;
 
+import edu.kelompok5.projectweew.model.jualModel;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -20,6 +21,17 @@ public class Jual extends javax.swing.JFrame {
      */
     public Jual() {
         initComponents();
+        gocengbtn.setActionCommand("5");
+        cebanbtn.setActionCommand("10");
+        duacebanbtn.setActionCommand("20");
+        dualima.setActionCommand("25");
+        gocap.setActionCommand("50");
+        cepe.setActionCommand("100");
+        
+        jualModel j = new jualModel();
+        
+         ButtonGroup grupbutton =new ButtonGroup();
+        j.setNominal(grupbutton.getSelection().getActionCommand());
     }
 
     public JRadioButton getCebanbtn() {

@@ -5,10 +5,17 @@
  */
 package edu.kelompok5.projectweew.event;
 
+import edu.kelompok5.projectweew.entity.pembeli;
+import edu.kelompok5.projectweew.model.jualModel;
+
 /**
  *
  * @author Naufal Zayn M
  */
 public interface jualListener {
+    public void onChange (jualModel model);
+    public void onInsert (pembeli pembeli );
+    public void onDelete ();
+    public void onUpdate (pembeli pembeli);
     
 }

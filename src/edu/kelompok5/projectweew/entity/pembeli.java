@@ -17,14 +17,20 @@ public class pembeli {
     
     private Integer id_pembeli ;
     private String nohp_pembeli;
+    private String nominal;
+    
+    
     
     public pembeli (){
         
     }
 
-    public pembeli(String nohp_pembeli) {
+    public pembeli(String nohp_pembeli, String nominal) {
         this.nohp_pembeli = nohp_pembeli;
+        this.nominal = nominal;
     }
+
+   
     
 
     public Integer getId_pembeli() {
@@ -43,11 +49,20 @@ public class pembeli {
         this.nohp_pembeli = nohp_pembeli;
     }
 
+    public String getNominal() {
+        return nominal;
+    }
+
+    public void setNominal(String nominal) {
+        this.nominal = nominal;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.id_pembeli);
-        hash = 89 * hash + Objects.hashCode(this.nohp_pembeli);
+        hash = 43 * hash + Objects.hashCode(this.id_pembeli);
+        hash = 43 * hash + Objects.hashCode(this.nohp_pembeli);
+        hash = 43 * hash + Objects.hashCode(this.nominal);
         return hash;
     }
 
@@ -66,12 +81,17 @@ public class pembeli {
         if (!Objects.equals(this.nohp_pembeli, other.nohp_pembeli)) {
             return false;
         }
+        if (!Objects.equals(this.nominal, other.nominal)) {
+            return false;
+        }
         if (!Objects.equals(this.id_pembeli, other.id_pembeli)) {
             return false;
         }
         return true;
     }
+    
 
+    
    
         
 }
