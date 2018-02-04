@@ -36,6 +36,7 @@ public class Jual extends javax.swing.JFrame {
         tigacebanbtn = new javax.swing.JRadioButton();
         gocap = new javax.swing.JRadioButton();
         cepe = new javax.swing.JRadioButton();
+        close = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -106,6 +107,9 @@ public class Jual extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cepe, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, -1, -1));
+
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
+        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/5k.png"))); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
@@ -232,6 +236,7 @@ public class Jual extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton cebanbtn;
     private javax.swing.JRadioButton cepe;
+    private javax.swing.JLabel close;
     private javax.swing.JRadioButton duacebanbtn;
     private javax.swing.JRadioButton gocap;
     private javax.swing.JRadioButton gocengbtn;
