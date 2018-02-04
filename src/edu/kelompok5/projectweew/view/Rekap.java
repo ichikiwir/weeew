@@ -44,6 +44,8 @@ public class Rekap extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         Rekap = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         close = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -70,7 +72,13 @@ public class Rekap extends javax.swing.JFrame {
         Rekap.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane2.setViewportView(Rekap);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 250));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 350));
+
+        jButton1.setText("Reset");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, -1));
+
+        jButton2.setText("Hapus");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 430, -1, -1));
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,6 +157,8 @@ this.setVisible(false);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Rekap;
     private javax.swing.JLabel close;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
