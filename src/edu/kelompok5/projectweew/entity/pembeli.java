@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -84,10 +84,7 @@ public class pembeli {
         if (!Objects.equals(this.nominal, other.nominal)) {
             return false;
         }
-        if (!Objects.equals(this.id_pembeli, other.id_pembeli)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.id_pembeli, other.id_pembeli);
     }
 
     
