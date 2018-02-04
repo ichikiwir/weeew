@@ -23,8 +23,8 @@ import java.util.List;
 public class transaksiDAOimpl implements TransaksiDAO {
 
     private Connection connection;
-    private final String insertTransaksi = "INSERT INTO TRANSAKSI (HASIL)VALUES(?)";
-    private final String updateTransaksi = "UPDATE TRANSAKSI SET HASIL=? WHERE ID_PEMBELI=?";
+    private final String insertTransaksi = "INSERT INTO TRANSAKSI (HASIL,NOMINAL)VALUES(?,?)";
+    private final String updateTransaksi = "UPDATE TRANSAKSI SET HASIL=?,NOMINAL=? WHERE ID_PEMBELI=?";
     private final String deleteTransaksi = "DELETE FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getById = "SELECT * FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getByHasil = "SELECT * FROM TRANSAKSI WHERE HASIL=?";
@@ -41,6 +41,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(insertTransaksi);
             statement.setString(1, transaksi.getHasil());
+            statement.setString(2,transaksi.getNominal());
             statement.executeUpdate();
             connection.commit();
 
@@ -65,6 +66,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
             statement = connection.prepareStatement(updateTransaksi);
             statement.setString(1, transaksi.getHasil());
             statement.setInt(2, transaksi.getId_pembeli());
+            statement.setString(3, transaksi.getNominal());
             statement.executeUpdate();
             connection.commit();
 

@@ -17,9 +17,28 @@ public class transaksi {
     private Integer id_pembeli;
     private Integer id_penjual;
     private String nohp_pembeli;
-    
+    private String nominal;
     private String hasil;
     private Date tanggal;
+    
+    public transaksi(){
+        
+    }
+
+    public transaksi(String nominal, String hasil) {
+        this.nominal = nominal;
+        this.hasil = hasil;
+    }
+    
+    
+
+    public String getNominal() {
+        return nominal;
+    }
+
+    public void setNominal(String nominal) {
+        this.nominal = nominal;
+    }
 
     
     public Integer getId_pembeli() {
@@ -61,17 +80,17 @@ public class transaksi {
     public void setTanggal(Date tanggal) {
         tanggal.toLocalDate();
         this.tanggal = tanggal;
-        
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 73 * hash + Objects.hashCode(this.id_pembeli);
-        hash = 73 * hash + Objects.hashCode(this.id_penjual);
-        hash = 73 * hash + Objects.hashCode(this.nohp_pembeli);
-        hash = 73 * hash + Objects.hashCode(this.hasil);
-        hash = 73 * hash + Objects.hashCode(this.tanggal);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.id_pembeli);
+        hash = 29 * hash + Objects.hashCode(this.id_penjual);
+        hash = 29 * hash + Objects.hashCode(this.nohp_pembeli);
+        hash = 29 * hash + Objects.hashCode(this.nominal);
+        hash = 29 * hash + Objects.hashCode(this.hasil);
+        hash = 29 * hash + Objects.hashCode(this.tanggal);
         return hash;
     }
 
@@ -90,6 +109,9 @@ public class transaksi {
         if (!Objects.equals(this.nohp_pembeli, other.nohp_pembeli)) {
             return false;
         }
+        if (!Objects.equals(this.nominal, other.nominal)) {
+            return false;
+        }
         if (!Objects.equals(this.hasil, other.hasil)) {
             return false;
         }
@@ -104,6 +126,8 @@ public class transaksi {
         }
         return true;
     }
+
+    
 
     
     

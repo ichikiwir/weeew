@@ -32,7 +32,7 @@ public class pembeli {
 
    
     
-
+    
     public Integer getId_pembeli() {
         return id_pembeli;
     }
@@ -59,10 +59,10 @@ public class pembeli {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 43 * hash + Objects.hashCode(this.id_pembeli);
-        hash = 43 * hash + Objects.hashCode(this.nohp_pembeli);
-        hash = 43 * hash + Objects.hashCode(this.nominal);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.id_pembeli);
+        hash = 29 * hash + Objects.hashCode(this.nohp_pembeli);
+        hash = 29 * hash + Objects.hashCode(this.nominal);
         return hash;
     }
 
@@ -89,6 +89,8 @@ public class pembeli {
         }
         return true;
     }
+
+    
     
 
     
