@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package edu.kelompok5.projectweew.view;
-import AppPackage.AnimationClass;
+
 import edu.kelompok5.projectweew.model.jualModel;
 /**
  *
@@ -132,8 +132,7 @@ idpenjualTxt.setVisible(true);
     }//GEN-LAST:event_LoginMouseClicked
 
     private void idpenjualregistMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idpenjualregistMouseReleased
-      AnimationClass AC = new AnimationClass();
-      AC.jLabelXRight(-260, 0, 10, 2, jLabel1);
+      
       
     }//GEN-LAST:event_idpenjualregistMouseReleased
 
