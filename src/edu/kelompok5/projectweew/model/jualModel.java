@@ -14,7 +14,7 @@ public class jualModel {
     private String nominal;
     private String nohp_pembeli;
     
-    private jualListener;
+ 
 
     public String getNominal() {
         return nominal;
