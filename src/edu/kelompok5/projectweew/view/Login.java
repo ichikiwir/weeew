@@ -31,15 +31,13 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/idpenjual.png"))); // NOI18N
-        jLabel6.setAlignmentY(0.0F);
+        jPanel2 = new javax.swing.JPanel();
+        idpenjuallogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -64,15 +62,29 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/bg.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 790, 680));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 570));
+
+        idpenjuallogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/idpenjual.png"))); // NOI18N
+        idpenjuallogin.setAlignmentY(0.0F);
+        idpenjuallogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                idpenjualloginMouseReleased(evt);
+            }
+        });
+        getContentPane().add(idpenjuallogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-       AnimationClass AC = new AnimationClass();
-       AC.jLabelXRight(0, ERROR, WIDTH, NORMAL, jLabel1);
+     idpenjuallogin n = new idpenjuallogin();
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void idpenjualloginMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idpenjualloginMouseReleased
+     AnimationClass AC = new AnimationClass();
+       AC.jLabelXRight(0, ERROR, WIDTH, NORMAL, jLabel1);
+    }//GEN-LAST:event_idpenjualloginMouseReleased
 
     /**
      * @param args the command line arguments
@@ -108,11 +120,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel idpenjuallogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
