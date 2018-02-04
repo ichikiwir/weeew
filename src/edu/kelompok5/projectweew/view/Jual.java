@@ -72,9 +72,11 @@ public class Jual extends javax.swing.JFrame {
         tigacebanbtn = new javax.swing.JRadioButton();
         gocap = new javax.swing.JRadioButton();
         cepe = new javax.swing.JRadioButton();
+        dualima = new javax.swing.JRadioButton();
         close = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         transaksi = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -102,7 +104,7 @@ public class Jual extends javax.swing.JFrame {
                 gocengbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(gocengbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+        getContentPane().add(gocengbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
         grupButton.add(cebanbtn);
         cebanbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +112,7 @@ public class Jual extends javax.swing.JFrame {
                 cebanbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(cebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+        getContentPane().add(cebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
         grupButton.add(duacebanbtn);
         duacebanbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +120,7 @@ public class Jual extends javax.swing.JFrame {
                 duacebanbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(duacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, -1, -1));
+        getContentPane().add(duacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         grupButton.add(tigacebanbtn);
         tigacebanbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +128,7 @@ public class Jual extends javax.swing.JFrame {
                 tigacebanbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(tigacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, -1));
+        getContentPane().add(tigacebanbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
         grupButton.add(gocap);
         gocap.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +144,10 @@ public class Jual extends javax.swing.JFrame {
                 cepeActionPerformed(evt);
             }
         });
-        getContentPane().add(cepe, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, -1, -1));
+        getContentPane().add(cepe, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, -1, -1));
+
+        grupButton.add(dualima);
+        getContentPane().add(dualima, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
         close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/curosssu.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,7 +158,7 @@ public class Jual extends javax.swing.JFrame {
         getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/5k.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         transaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/transaksi.png"))); // NOI18N
         transaksi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,23 +168,26 @@ public class Jual extends javax.swing.JFrame {
         });
         getContentPane().add(transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/25.png"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, -1, -1));
+
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/no.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 70, 60));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/100.png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/50.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/30.png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 190, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/20.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/10k.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/bacc.png"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -289,11 +297,13 @@ public class Jual extends javax.swing.JFrame {
     private javax.swing.JRadioButton cepe;
     private javax.swing.JLabel close;
     private javax.swing.JRadioButton duacebanbtn;
+    private javax.swing.JRadioButton dualima;
     private javax.swing.JRadioButton gocap;
     private javax.swing.JRadioButton gocengbtn;
     private javax.swing.ButtonGroup grupButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
