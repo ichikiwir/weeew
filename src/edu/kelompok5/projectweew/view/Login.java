@@ -23,11 +23,22 @@ public class Login extends javax.swing.JFrame implements jualListener{
 private jualModel model;
     private Controller controller;
     private transaksiModel m;
+    private Jual view;
     /**
      * Creates new form Login
      */
     public Login() {
+        m = new transaksiModel();
+        model = new jualModel();
+        model.setListener(this);
+        view = new Jual();
+        
+        
+        controller = new Controller();
+        controller.setModel(model);
         initComponents();
+        
+        
         
     }
 
@@ -144,6 +155,8 @@ this.setVisible(false);
 
     private void okloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okloginActionPerformed
         // TODO add your handling code here:
+        controller.insertTransaksi(view);
+        controller.insertTransaksi(this);        
     }//GEN-LAST:event_okloginActionPerformed
 
     /**
@@ -191,12 +204,12 @@ this.setVisible(false);
 
     @Override
     public void onChange(jualModel model) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        idpenjualTxt.setText(model.getId_penjual()+"");
     }
 
     @Override
     public void onInsertTransaksi(transaksi transaksi) {
-
+m.add(transaksi);
     }
 
     @Override

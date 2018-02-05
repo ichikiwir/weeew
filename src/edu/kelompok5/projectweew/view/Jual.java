@@ -30,9 +30,17 @@ public class Jual extends javax.swing.JFrame implements jualListener{
     private jualModel model;
     private Controller controller;
     private transaksiModel m;
+    private Login view;
    
 
     public Jual() {
+         m = new transaksiModel();
+        model = new jualModel();
+        model.setListener(this);
+        view = new Login();
+        
+        controller = new Controller();
+        controller.setModel(model);
         initComponents();
         gocengbtn.setActionCommand("5");
         cebanbtn.setActionCommand("10");
@@ -162,6 +170,11 @@ public class Jual extends javax.swing.JFrame implements jualListener{
         getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, 100, -1));
 
         reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
         getContentPane().add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
 
         grupButton1.add(gocengbtn);
@@ -308,7 +321,8 @@ public class Jual extends javax.swing.JFrame implements jualListener{
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
-
+controller.insertTransaksi(this);
+controller.insertTransaksi(view);
 
     }//GEN-LAST:event_transaksiMouseClicked
 
@@ -351,6 +365,11 @@ public class Jual extends javax.swing.JFrame implements jualListener{
     private void tanggal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanggal1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tanggal1ActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        // TODO add your handling code here:
+        controller.resetTransaksi(this);
+    }//GEN-LAST:event_resetActionPerformed
 
     /**
      * @param args the command line arguments

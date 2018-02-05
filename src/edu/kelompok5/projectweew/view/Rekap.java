@@ -228,7 +228,7 @@ this.setVisible(false);
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+        controller.deleteTransaksi(this);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -297,7 +297,8 @@ this.setVisible(false);
 
     @Override
     public void onDelete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      int index= Rekap.getSelectedRow();
+       m.remove(index);
     }
 
    
