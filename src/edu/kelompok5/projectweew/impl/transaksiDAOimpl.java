@@ -169,7 +169,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
     public List<transaksi> selectAllTransaksi() throws transaksiException {
         Statement statement = null;
 
-        List<transaksi> list = new ArrayList<transaksi>();
+        List<transaksi> list = new ArrayList<>();
 
         try {
             connection.setAutoCommit(false);

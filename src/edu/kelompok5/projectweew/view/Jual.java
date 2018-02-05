@@ -25,31 +25,23 @@ import javax.swing.JTextField;
  *
  * @author ASUS X
  */
-public class Jual extends javax.swing.JFrame implements jualListener{
+public class Jual extends javax.swing.JFrame implements jualListener {
 
     private final jualModel model;
     private final Controller controller;
-    private final transaksiModel m;
-    private final Login view;
-   
+    private final transaksiModel t;
+
 
     public Jual() {
-         m = new transaksiModel();
+
         model = new jualModel();
-        model.setListener(this);
-        view = new Login();
-        
+       
+        t= new transaksiModel();
         controller = new Controller();
         controller.setModel(model);
+
         initComponents();
-        gocengbtn.setActionCommand("5");
-        cebanbtn.setActionCommand("10");
-        duacebanbtn.setActionCommand("20");
-        dualima.setActionCommand("25");
-        gocap.setActionCommand("50");
-        cepe.setActionCommand("100");
-        BerhasilBtn.setActionCommand("Berhasil");
-        TBerhasilBtn.setActionCommand("Tidak Berhasil");
+
     }
 
     public String showTime() {
@@ -57,7 +49,7 @@ public class Jual extends javax.swing.JFrame implements jualListener{
         SimpleDateFormat s = new SimpleDateFormat("dd-mm-yy");
         String h = s.format(d);
         tanggal1.setText(h);
-       return h;
+        return h;
 
     }
 
@@ -104,7 +96,6 @@ public class Jual extends javax.swing.JFrame implements jualListener{
     public JTextField getTxtid() {
         return txtid;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,8 +108,8 @@ public class Jual extends javax.swing.JFrame implements jualListener{
 
         grupButton1 = new javax.swing.ButtonGroup();
         grupButton2 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
         nohp = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         tanggal1 = new javax.swing.JTextField();
         txtid = new javax.swing.JTextField();
         reset = new javax.swing.JButton();
@@ -149,14 +140,19 @@ public class Jual extends javax.swing.JFrame implements jualListener{
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(726, 540));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        nohp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nohpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 410, 30));
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        getContentPane().add(nohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 310, 30));
 
         tanggal1.setEditable(false);
         tanggal1.addActionListener(new java.awt.event.ActionListener() {
@@ -321,8 +317,17 @@ public class Jual extends javax.swing.JFrame implements jualListener{
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
-controller.insertTransaksi(this);
-controller.insertTransaksi(view);
+        gocengbtn.setActionCommand("5");
+        cebanbtn.setActionCommand("10");
+        duacebanbtn.setActionCommand("20");
+        dualima.setActionCommand("25");
+        gocap.setActionCommand("50");
+        cepe.setActionCommand("100");
+        BerhasilBtn.setActionCommand("Berhasil");
+        TBerhasilBtn.setActionCommand("Tidak Berhasil");
+        
+        controller.insertTransaksi(this);
+        
 
     }//GEN-LAST:event_transaksiMouseClicked
 
@@ -370,6 +375,10 @@ controller.insertTransaksi(view);
         // TODO add your handling code here:
         controller.resetTransaksi(this);
     }//GEN-LAST:event_resetActionPerformed
+
+    private void nohpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nohpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nohpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -444,19 +453,19 @@ controller.insertTransaksi(view);
     public void onChange(jualModel model) {
         grupButton1.getSelection().setActionCommand(model.getNominal());
         grupButton2.getSelection().setActionCommand(model.getHasil());
-        txtid.setText(model.getId_pembeli()+"");
+        txtid.setText(model.getId_pembeli() + "");
         tanggal1.setText(model.getTanggal());
         nohp.setText(model.getNohp_pembeli());
     }
 
     @Override
     public void onInsertTransaksi(transaksi transaksi) {
-        m.add(transaksi);
+        t.add(transaksi);
     }
 
     @Override
     public void onDelete() {
-       
+
     }
 
 }

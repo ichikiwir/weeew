@@ -23,15 +23,15 @@ public class Login extends javax.swing.JFrame implements jualListener{
 private final jualModel model;
     private final Controller controller;
     private final transaksiModel m;
-    private final Jual view;
+  
     /**
      * Creates new form Login
      */
-    public Login() {
+     Login() {
         m = new transaksiModel();
         model = new jualModel();
-        model.setListener(this);
-        view = new Jual();
+   
+        
         
         
         controller = new Controller();
@@ -155,7 +155,7 @@ this.setVisible(false);
 
     private void okloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okloginActionPerformed
         // TODO add your handling code here:
-        controller.insertTransaksi(view);
+       
         controller.insertTransaksi(this);        
     }//GEN-LAST:event_okloginActionPerformed
 

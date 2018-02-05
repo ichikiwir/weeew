@@ -128,10 +128,8 @@ public class setpin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new setpin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new setpin().setVisible(true);
         });
     }
 

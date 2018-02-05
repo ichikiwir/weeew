@@ -6,6 +6,7 @@
 package edu.kelompok5.projectweew.model;
 
 import edu.kelompok5.projectweew.entity.transaksi;
+import edu.kelompok5.projectweew.view.Jual;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -16,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class transaksiModel extends AbstractTableModel {
 
-    private List<transaksi> list = new ArrayList<transaksi>();
+    private List<transaksi> list = new ArrayList<>();
 
     public void setList(List<transaksi> list) {
         this.list = list;
@@ -103,6 +104,10 @@ public class transaksiModel extends AbstractTableModel {
             default:
                 return null;
         }
+    }
+
+    public void setListener(Jual aThis) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

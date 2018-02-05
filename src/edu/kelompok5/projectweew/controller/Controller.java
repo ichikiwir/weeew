@@ -55,7 +55,7 @@ public class Controller {
         String tanggal = view.getTanggal1().getText();
 
         if (nohp_pembeli.trim().equals("")) {
-            JOptionPane.showMessageDialog(view, "Namatidak boleh kosong");
+            JOptionPane.showMessageDialog(view, "Nama tidak boleh kosong");
         }
 
         model.setNominal(nominal);

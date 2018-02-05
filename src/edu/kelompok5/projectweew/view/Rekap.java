@@ -23,7 +23,7 @@ public class Rekap extends javax.swing.JFrame implements jualListener{
   private jualModel model;
     private Controller controller;
     private transaksiModel m;
-    Rekap.
+
  
    
   
