@@ -196,7 +196,7 @@ this.setVisible(false);
 
     @Override
     public void onInsertTransaksi(transaksi transaksi) {
-  Rekap
+
     }
 
     @Override
