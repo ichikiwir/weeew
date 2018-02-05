@@ -6,11 +6,16 @@
 package edu.kelompok5.projectweew.view;
 
 import edu.kelompok5.projectweew.controller.Controller;
-
 import edu.kelompok5.projectweew.entity.transaksi;
 import edu.kelompok5.projectweew.event.jualListener;
+
 import edu.kelompok5.projectweew.model.jualModel;
+import edu.kelompok5.projectweew.model.transaksiModel;
 import java.awt.Color;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.ButtonGroup;
 
 import javax.swing.JRadioButton;
@@ -20,19 +25,32 @@ import javax.swing.JTextField;
  *
  * @author ASUS X
  */
-public class Jual extends javax.swing.JFrame{
+public class Jual extends javax.swing.JFrame implements jualListener{
 
-   private jualModel model;
-   private Controller controller;
+    private jualModel model;
+    private Controller controller;
+    private transaksiModel m;
+   
+
     public Jual() {
         initComponents();
         gocengbtn.setActionCommand("5");
         cebanbtn.setActionCommand("10");
         duacebanbtn.setActionCommand("20");
+        dualima.setActionCommand("25");
         gocap.setActionCommand("50");
         cepe.setActionCommand("100");
         BerhasilBtn.setActionCommand("Berhasil");
         TBerhasilBtn.setActionCommand("Tidak Berhasil");
+    }
+
+    public String showTime() {
+        Date d = new Date();
+        SimpleDateFormat s = new SimpleDateFormat("dd-mm-yy");
+        String h = s.format(d);
+        tanggal1.setText(h);
+       return h;
+
     }
 
     public ButtonGroup getGrupButton1() {
@@ -71,6 +89,10 @@ public class Jual extends javax.swing.JFrame{
         return nohp;
     }
 
+    public JTextField getTanggal1() {
+        return tanggal1;
+    }
+
     public JTextField getTxtid() {
         return txtid;
     }
@@ -89,17 +111,22 @@ public class Jual extends javax.swing.JFrame{
         grupButton2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         nohp = new javax.swing.JTextField();
+        tanggal1 = new javax.swing.JTextField();
+        txtid = new javax.swing.JTextField();
+        reset = new javax.swing.JButton();
         gocengbtn = new javax.swing.JRadioButton();
         cebanbtn = new javax.swing.JRadioButton();
         duacebanbtn = new javax.swing.JRadioButton();
         tigacebanbtn = new javax.swing.JRadioButton();
         gocap = new javax.swing.JRadioButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         cepe = new javax.swing.JRadioButton();
         dualima = new javax.swing.JRadioButton();
         BerhasilBtn = new javax.swing.JRadioButton();
         TBerhasilBtn = new javax.swing.JRadioButton();
         close = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         transaksi = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -112,12 +139,6 @@ public class Jual extends javax.swing.JFrame{
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtid = new javax.swing.JTextField();
-        txtidpen = new javax.swing.JTextField();
-        txtnohp = new javax.swing.JTextField();
-        txtnominal = new javax.swing.JTextField();
-        txthasil = new javax.swing.JTextField();
-        txttanggal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(726, 540));
@@ -128,6 +149,20 @@ public class Jual extends javax.swing.JFrame{
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         getContentPane().add(nohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 310, 30));
+
+        tanggal1.setEditable(false);
+        tanggal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tanggal1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tanggal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 490, 100, -1));
+
+        txtid.setEditable(false);
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, 100, -1));
+
+        reset.setText("Reset");
+        getContentPane().add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
 
         grupButton1.add(gocengbtn);
         gocengbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +204,15 @@ public class Jual extends javax.swing.JFrame{
         });
         getContentPane().add(gocap, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, -1));
 
+        jLabel14.setText("tanggal");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, -1, -1));
+
+        jLabel12.setText("id_pembeli");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, -1, -1));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/5k.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
+
         grupButton1.add(cepe);
         cepe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,9 +249,6 @@ public class Jual extends javax.swing.JFrame{
             }
         });
         getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, -1));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/5k.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         transaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/transaksi.png"))); // NOI18N
         transaksi.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -255,48 +296,6 @@ public class Jual extends javax.swing.JFrame{
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/kelompok5/projectweew/view/main2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-220, -300, 950, -1));
 
-        txtid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
-
-        txtidpen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidpenActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtidpen, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
-
-        txtnohp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnohpActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtnohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
-
-        txtnominal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnominalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtnominal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
-
-        txthasil.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txthasilActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txthasil, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
-
-        txttanggal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txttanggalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txttanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 480, -1, -1));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -309,7 +308,7 @@ public class Jual extends javax.swing.JFrame{
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
-       
+
 
     }//GEN-LAST:event_transaksiMouseClicked
 
@@ -349,35 +348,9 @@ public class Jual extends javax.swing.JFrame{
         TBerhasilBtn.setBackground(new Color(0, 0, 0, 0));
     }//GEN-LAST:event_TBerhasilBtnActionPerformed
 
-    private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
+    private void tanggal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tanggal1ActionPerformed
         // TODO add your handling code here:
-        setVisible(false);
-    }//GEN-LAST:event_txtidActionPerformed
-
-    private void txtidpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidpenActionPerformed
-        // TODO add your handling code here:
-         setVisible(false);
-    }//GEN-LAST:event_txtidpenActionPerformed
-
-    private void txtnohpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnohpActionPerformed
-        // TODO add your handling code here:
-         setVisible(false);
-    }//GEN-LAST:event_txtnohpActionPerformed
-
-    private void txtnominalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnominalActionPerformed
-        // TODO add your handling code here:
-         setVisible(false);
-    }//GEN-LAST:event_txtnominalActionPerformed
-
-    private void txthasilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txthasilActionPerformed
-        // TODO add your handling code here:
-         setVisible(false);
-    }//GEN-LAST:event_txthasilActionPerformed
-
-    private void txttanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttanggalActionPerformed
-        // TODO add your handling code here:
-         setVisible(false);
-    }//GEN-LAST:event_txttanggalActionPerformed
+    }//GEN-LAST:event_tanggal1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,7 +401,9 @@ public class Jual extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -439,15 +414,30 @@ public class Jual extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nohp;
+    private javax.swing.JButton reset;
+    private javax.swing.JTextField tanggal1;
     private javax.swing.JRadioButton tigacebanbtn;
     private javax.swing.JLabel transaksi;
-    private javax.swing.JTextField txthasil;
     private javax.swing.JTextField txtid;
-    private javax.swing.JTextField txtidpen;
-    private javax.swing.JTextField txtnohp;
-    private javax.swing.JTextField txtnominal;
-    private javax.swing.JTextField txttanggal;
     // End of variables declaration//GEN-END:variables
 
-   
+    @Override
+    public void onChange(jualModel model) {
+        grupButton1.getSelection().setActionCommand(model.getNominal());
+        grupButton2.getSelection().setActionCommand(model.getHasil());
+        txtid.setText(model.getId_pembeli()+"");
+        tanggal1.setText(model.getTanggal());
+        nohp.setText(model.getNohp_pembeli());
+    }
+
+    @Override
+    public void onInsertTransaksi(transaksi transaksi) {
+        m.add(transaksi);
+    }
+
+    @Override
+    public void onDelete() {
+       
+    }
+
 }

@@ -18,9 +18,11 @@ import javax.swing.JTextField;
  *
  * @author ASUS X
  */
-public class Rekap extends javax.swing.JFrame {
+public class Rekap extends javax.swing.JFrame implements jualListener{
     
-  
+  private jualModel model;
+    private Controller controller;
+    private transaksiModel m;
  
    
   
@@ -282,6 +284,21 @@ this.setVisible(false);
     private javax.swing.JTextField txtnominal;
     private javax.swing.JTextField txttanggal;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void onChange(jualModel model) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onInsertTransaksi(transaksi transaksi) {
+        m.add(transaksi);
+    }
+
+    @Override
+    public void onDelete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
    
 }

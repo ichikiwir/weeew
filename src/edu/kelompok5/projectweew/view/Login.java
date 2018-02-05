@@ -10,6 +10,7 @@ import edu.kelompok5.projectweew.controller.Controller;
 import edu.kelompok5.projectweew.entity.transaksi;
 import edu.kelompok5.projectweew.event.jualListener;
 import edu.kelompok5.projectweew.model.jualModel;
+import edu.kelompok5.projectweew.model.transaksiModel;
 import javax.swing.JTextField;
 
 
@@ -17,15 +18,21 @@ import javax.swing.JTextField;
  *
  * @author ASUS X
  */
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame implements jualListener{
 
-
+private jualModel model;
+    private Controller controller;
+    private transaksiModel m;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
         
+    }
+
+    public JTextField getIdpenjualTxt() {
+        return idpenjualTxt;
     }
 
     
@@ -41,9 +48,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
         idpenjualTxt = new javax.swing.JTextField();
-        nama = new javax.swing.JTextField();
         oklogin = new javax.swing.JToggleButton();
         loginh3h3 = new javax.swing.JLabel();
         close = new javax.swing.JLabel();
@@ -59,11 +64,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setText("NAMA");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
         getContentPane().add(idpenjualTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 210, 30));
-        getContentPane().add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 210, 30));
 
         oklogin.setText("ok");
         oklogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,11 +185,24 @@ this.setVisible(false);
     private javax.swing.JTextField idpenjualTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel loginh3h3;
-    private javax.swing.JTextField nama;
     private javax.swing.JToggleButton oklogin;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void onChange(jualModel model) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onInsertTransaksi(transaksi transaksi) {
+  Rekap
+    }
+
+    @Override
+    public void onDelete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }

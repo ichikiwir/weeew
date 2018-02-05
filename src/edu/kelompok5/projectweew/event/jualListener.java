@@ -19,6 +19,6 @@ public interface jualListener {
 
     public void onDelete();
 
-    public void onUpdateTransaksi(transaksi transaksi);
+   
 
 }

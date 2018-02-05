@@ -19,7 +19,7 @@ public class transaksi {
     private String nohp_pembeli;
     private String nominal;
     private String hasil;
-    private Date tanggal;
+    private String tanggal;
     
     public transaksi(){
         
@@ -73,12 +73,12 @@ public class transaksi {
         this.hasil = hasil;
     }
 
-    public Date getTanggal() {
+    public String getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(Date tanggal) {
-        tanggal.toLocalDate();
+    public void setTanggal(String tanggal) {
+      
         this.tanggal = tanggal;
     }
 

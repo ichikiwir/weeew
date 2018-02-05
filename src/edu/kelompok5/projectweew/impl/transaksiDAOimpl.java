@@ -24,7 +24,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
 
     private Connection connection;
     private final String insertTransaksi = "INSERT INTO TRANSAKSI (ID_PENJUAL,NOHP_PEMBELI,HASIL,NOMINAL,TANGGAL)VALUES(?,?,?,?,?)";
-    private final String updateTransaksi = "UPDATE TRANSAKSI SET ID_PENJUAL=?,NOHP_PEMBELI=?,HASIL=?,NOMINAL=? WHERE ID_PEMBELI=?";
+    
     private final String deleteTransaksi = "DELETE FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getById = "SELECT * FROM TRANSAKSI WHERE ID_PEMBELI=?";
     private final String getByHasil = "SELECT * FROM TRANSAKSI WHERE HASIL=?";
@@ -44,7 +44,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
             statement.setString(2, transaksi.getNohp_pembeli());
             statement.setString(3, transaksi.getHasil());
             statement.setString(4, transaksi.getNominal());
-            statement.setDate(5, transaksi.getTanggal());
+            statement.setString(5, transaksi.getTanggal());
             statement.executeUpdate();
             connection.commit();
 
@@ -61,33 +61,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
         }
     }
 
-    @Override
-    public void updateTransaksi(transaksi transaksi) throws transaksiException {
-        PreparedStatement statement = null;
-        try {
-            connection.setAutoCommit(false);
-            statement = connection.prepareStatement(updateTransaksi);
-            statement.setInt(1, transaksi.getId_penjual());
-            statement.setInt(2, transaksi.getId_pembeli());
-            statement.setString(3, transaksi.getNohp_pembeli());
-            statement.setString(4, transaksi.getNominal());
-            statement.setString(5, transaksi.getHasil());
-            statement.setDate(6, transaksi.getTanggal());
-            statement.executeUpdate();
-            connection.commit();
-
-        } catch (SQLException e) {
-            throw new transaksiException(e.getMessage());
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException e) {
-                }
-            }
-
-        }
-    }
+    
 
     @Override
     public void deleteTransaksi(Integer id_pembeli) throws transaksiException {
@@ -129,7 +103,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
                 transaksi.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
                 transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setNominal(result.getString("NOMINAL"));
-                transaksi.setTanggal(result.getDate("TANGGAL"));
+                transaksi.setTanggal(result.getString("TANGGAL"));
 
             } else {
                 throw new transaksiException("Transaksi dengan id pembeli " + id_pembeli + " tidak ditemukan");
@@ -166,7 +140,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
                 transaksi.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
                 transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setNominal(result.getString("NOMINAL"));
-                transaksi.setTanggal(result.getDate("TANGGAL"));
+                transaksi.setTanggal(result.getString("TANGGAL"));
 
             } else {
                 throw new transaksiException("Transaksi dengan hasil " + hasil + " tidak ditemukan");
@@ -206,7 +180,7 @@ public class transaksiDAOimpl implements TransaksiDAO {
                 transaksi.setNohp_pembeli(result.getString("NOHP_PEMBELI"));
                 transaksi.setHasil(result.getString("HASIL"));
                 transaksi.setNominal(result.getString("NOMINAL"));
-                transaksi.setTanggal(result.getDate("TANGGAL"));
+                transaksi.setTanggal(result.getString("TANGGAL"));
                 list.add(transaksi);
             }
             connection.commit();

@@ -10,7 +10,7 @@ import edu.kelompok5.projectweew.entity.transaksi;
 import edu.kelompok5.projectweew.error.transaksiException;
 import edu.kelompok5.projectweew.event.jualListener;
 import edu.kelompok5.projectweew.service.TransaksiDAO;
-import java.sql.Date;
+
 import java.sql.SQLException;
 
 /**
@@ -22,7 +22,7 @@ public class jualModel {
     private String nohp_pembeli;
     private String nominal;
     private String hasil;
-    private Date tanggal;
+    private String tanggal;
     private Integer id_penjual;
     private Integer id_pembeli;
 
@@ -54,12 +54,11 @@ public class jualModel {
         fireonChange();
     }
 
-    public Date getTanggal() {
+    public String getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(Date tanggal) {
-        tanggal.toLocalDate();
+    public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
         fireonChange();
     }
@@ -104,12 +103,7 @@ public class jualModel {
         }
     }
 
-    protected void fireonUpdateTransaksi(transaksi transaksi) {
-        if (listener != null) {
-            listener.onUpdateTransaksi(transaksi);
-        }
-
-    }
+   
 
     protected void fireonDelete() {
         if (listener != null) {
@@ -130,23 +124,18 @@ public class jualModel {
         fireonInsertTransaksi(transaksi);
     }
 
-    public void updateTransaksi() throws SQLException, transaksiException {
-        TransaksiDAO dao = dbweeew.getTransaksiDAO();
-        transaksi transaksi = new transaksi();
-        transaksi.setId_penjual(id_penjual);
-        transaksi.setNohp_pembeli(nohp_pembeli);
-        transaksi.setNominal(nominal);
-        transaksi.setHasil(hasil);
-        transaksi.setTanggal(tanggal);
-        transaksi.setId_pembeli(id_pembeli);
-        dao.updateTransaksi(transaksi);
-        fireonUpdateTransaksi(transaksi);
-    }
+    
 
     public void deleteTransaksi() throws SQLException, transaksiException {
         TransaksiDAO dao = dbweeew.getTransaksiDAO();
         dao.deleteTransaksi(id_pembeli);
         fireonDelete();
+    }
+    
+    public void resetTransaksi(){
+        setHasil("");
+        setNohp_pembeli("");
+        setNominal("");
     }
 
 }

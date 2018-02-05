@@ -16,7 +16,7 @@ import java.util.List;
 public interface TransaksiDAO {
     public void insertTransaksi(transaksi transaksi) throws transaksiException;
 
-    public void updateTransaksi(transaksi transaksi) throws transaksiException;
+    
 
     public void deleteTransaksi(Integer id_pembeli) throws transaksiException;
 
