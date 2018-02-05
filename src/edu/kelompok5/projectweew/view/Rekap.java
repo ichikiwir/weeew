@@ -6,19 +6,25 @@
 package edu.kelompok5.projectweew.view;
 
 import edu.kelompok5.projectweew.controller.Controller;
+import edu.kelompok5.projectweew.database.dbweeew;
 
 import edu.kelompok5.projectweew.entity.transaksi;
+import edu.kelompok5.projectweew.error.transaksiException;
 import edu.kelompok5.projectweew.event.jualListener;
 import edu.kelompok5.projectweew.model.jualModel;
 import edu.kelompok5.projectweew.model.transaksiModel;
+import edu.kelompok5.projectweew.service.TransaksiDAO;
+import java.sql.SQLException;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
  * @author ASUS X
  */
-public class Rekap extends javax.swing.JFrame implements jualListener{
+public class Rekap extends javax.swing.JFrame implements jualListener, ListSelectionListener{
     
   private jualModel model;
     private Controller controller;
@@ -28,9 +34,11 @@ public class Rekap extends javax.swing.JFrame implements jualListener{
    
   
     public Rekap() {
-       
+       m = new transaksiModel();
         initComponents();
         
+        Rekap.getSelectionModel().addListSelectionListener(this);
+        Rekap.setModel(m);
     }
 
     public JTable getRekap() {
@@ -302,5 +310,20 @@ this.setVisible(false);
        m.remove(index);
     }
 
-   
+    @Override
+    public void valueChanged(ListSelectionEvent lse) {
+        try {
+            transaksi model = m.get(Rekap.getSelectedRow());
+            
+        } catch (IndexOutOfBoundsException exception) {
+        }
+        
+        
 }
+    public void loadDatabase() throws SQLException, transaksiException{
+            TransaksiDAO dao = dbweeew.getTransaksiDAO();
+            m.setList(dao.selectAllTransaksi());}
+}
+
+   
+

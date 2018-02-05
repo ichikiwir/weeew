@@ -48,7 +48,9 @@ public class transaksiDAOimpl implements TransaksiDAO {
             statement.executeUpdate();
             
             ResultSet result = statement.getGeneratedKeys();
-            if (result.next())
+            if (result.next()){
+                transaksi.setId_pembeli((result.getInt(1)));
+            }
   
             
             connection.commit();

@@ -5,7 +5,11 @@
  */
 package edu.kelompok5.projectweew.main;
 
+import edu.kelompok5.projectweew.error.transaksiException;
 import edu.kelompok5.projectweew.view.Rekap;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 
@@ -24,15 +28,22 @@ public class ProjectWeeew {
     public static void main(String[] args)  {
         // TODO code application logic here
         
-        SwingUtilities.invokeLater(() -> {
-            try {
-                Rekap n = new Rekap();
-                n.getTxthasil();
-            } catch (Exception e) {
-                
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Rekap transaksi = new Rekap();
+                    transaksi.loadDatabase();
+                    transaksi.setVisible(true);
+                } catch (SQLException e) {
+                    
+                } catch (transaksiException ex) {
+                    Logger.getLogger(ProjectWeeew.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
-       
+        
+        
        
     }
     

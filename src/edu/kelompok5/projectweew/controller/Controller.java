@@ -32,8 +32,8 @@ public class Controller {
     }
 
     public void insertTransaksi(Login view) {
-        String id_penjual = view.getIdpenjualTxt().getText();
-        Integer id = Integer.parseInt(id_penjual);
+        
+        Integer id = Integer.parseInt(view.getIdpenjualTxt().getText());
         model.setId_penjual(id);
         try {
             model.insertTransaksi();
@@ -55,7 +55,7 @@ public class Controller {
         String tanggal = view.getTanggal1().getText();
 
         if (nohp_pembeli.trim().equals("")) {
-            JOptionPane.showMessageDialog(view, "Nama tidak boleh kosong");
+            JOptionPane.showMessageDialog(view, "Nohp tidak boleh kosong");
         }
 
         model.setNominal(nominal);
@@ -68,7 +68,7 @@ public class Controller {
             JOptionPane.showMessageDialog(view, "Pembeli berhasil ditambahkan");
 
         } catch (Throwable throwable) {
-            JOptionPane.showMessageDialog(view, new Object[]{"Terjadi error di database dengan pesan"+ throwable.getMessage()});
+            JOptionPane.showMessageDialog(view, new Object[]{"Terjadi error di database dengan pesan "+ throwable.getMessage()});
 
         }
     }

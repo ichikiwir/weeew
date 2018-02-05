@@ -143,9 +143,7 @@ this.setVisible(false);
     }//GEN-LAST:event_formMouseEntered
 
     private void okloginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okloginMouseClicked
-        main n = new main();
-        n.setVisible(true);
-        this.setVisible(false);
+        
         
     }//GEN-LAST:event_okloginMouseClicked
 
@@ -156,7 +154,10 @@ this.setVisible(false);
     private void okloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okloginActionPerformed
         // TODO add your handling code here:
        
-        controller.insertTransaksi(this);        
+        controller.insertTransaksi(this); 
+        main n = new main();
+        n.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_okloginActionPerformed
 
     /**

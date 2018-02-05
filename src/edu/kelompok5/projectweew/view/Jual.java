@@ -31,17 +31,16 @@ public class Jual extends javax.swing.JFrame implements jualListener {
     private final Controller controller;
     private final transaksiModel t;
 
-
     public Jual() {
 
         model = new jualModel();
-       
-        t= new transaksiModel();
+
+        t = new transaksiModel();
         controller = new Controller();
         controller.setModel(model);
 
         initComponents();
-gocengbtn.setActionCommand("5");
+        gocengbtn.setActionCommand("5");
         cebanbtn.setActionCommand("10");
         duacebanbtn.setActionCommand("20");
         dualima.setActionCommand("25");
@@ -49,14 +48,6 @@ gocengbtn.setActionCommand("5");
         cepe.setActionCommand("100");
         BerhasilBtn.setActionCommand("Berhasil");
         TBerhasilBtn.setActionCommand("Tidak Berhasil");
-    }
-
-    public String showTime() {
-        Date d = new Date();
-        SimpleDateFormat s = new SimpleDateFormat("dd-mm-yy");
-        String h = s.format(d);
-        tanggal1.setText(h);
-        return h;
 
     }
 
@@ -324,10 +315,13 @@ gocengbtn.setActionCommand("5");
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void transaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_transaksiMouseClicked
-        
+        Date d = new Date();
+        SimpleDateFormat s = new SimpleDateFormat("dd-mm-yy");
+        String h = s.format(d);
+        tanggal1.setText(h);
         
         controller.insertTransaksi(this);
-        
+
 
     }//GEN-LAST:event_transaksiMouseClicked
 
@@ -413,6 +407,7 @@ gocengbtn.setActionCommand("5");
         });
 
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton BerhasilBtn;
