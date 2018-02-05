@@ -48,10 +48,10 @@ public class Controller {
     public void insertTransaksi(Jual view) {
         
         
-
+        
         String nominal = view.getGrupButton1().getSelection().getActionCommand();
         String hasil = view.getGrupButton2().getSelection().getActionCommand();
-        String nohp_pembeli = view.getNohp().getText();
+        String nohp_pembeli = String.valueOf(view.getNohp().getText());
         String tanggal = view.getTanggal1().getText();
 
         if (nohp_pembeli.trim().equals("")) {
@@ -68,7 +68,7 @@ public class Controller {
             JOptionPane.showMessageDialog(view, "Pembeli berhasil ditambahkan");
 
         } catch (Throwable throwable) {
-            JOptionPane.showMessageDialog(view, new Object[]{"Terjadi error di database dengan pesan", throwable.getMessage()});
+            JOptionPane.showMessageDialog(view, new Object[]{"Terjadi error di database dengan pesan"+ throwable.getMessage()});
 
         }
     }
