@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class transaksiDAOimpl implements TransaksiDAO {
 
-    private Connection connection;
+    private final Connection connection;
     private final String insertTransaksi = "INSERT INTO TRANSAKSI (ID_PENJUAL,NOHP_PEMBELI,HASIL,NOMINAL,TANGGAL)VALUES(?,?,?,?,?)";
     
     private final String deleteTransaksi = "DELETE FROM TRANSAKSI WHERE ID_PEMBELI=?";
@@ -39,13 +39,18 @@ public class transaksiDAOimpl implements TransaksiDAO {
         PreparedStatement statement = null;
         try {
             connection.setAutoCommit(false);
-            statement = connection.prepareStatement(insertTransaksi);
+            statement = connection.prepareStatement(insertTransaksi, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, transaksi.getId_penjual());
             statement.setString(2, transaksi.getNohp_pembeli());
             statement.setString(3, transaksi.getHasil());
             statement.setString(4, transaksi.getNominal());
             statement.setString(5, transaksi.getTanggal());
             statement.executeUpdate();
+            
+            ResultSet result = statement.getGeneratedKeys();
+            if (result.next())
+  
+            
             connection.commit();
 
         } catch (SQLException e) {

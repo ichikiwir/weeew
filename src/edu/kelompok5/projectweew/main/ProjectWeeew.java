@@ -5,6 +5,9 @@
  */
 package edu.kelompok5.projectweew.main;
 
+import edu.kelompok5.projectweew.view.Rekap;
+import javax.swing.SwingUtilities;
+
 
 
 
@@ -17,15 +20,18 @@ package edu.kelompok5.projectweew.main;
  */
 public class ProjectWeeew {
 
-    /**
-     * @param args the command line arguments
-     * @throws java.sql.SQLException
-     * @throws edu.kelompok5.projectweew.error.pembeliException
-     */
+
     public static void main(String[] args)  {
         // TODO code application logic here
         
-        
+        SwingUtilities.invokeLater(() -> {
+            try {
+                Rekap n = new Rekap();
+                n.getTxthasil();
+            } catch (Exception e) {
+                
+            }
+        });
        
        
     }

@@ -27,10 +27,10 @@ import javax.swing.JTextField;
  */
 public class Jual extends javax.swing.JFrame implements jualListener{
 
-    private jualModel model;
-    private Controller controller;
-    private transaksiModel m;
-    private Login view;
+    private final jualModel model;
+    private final Controller controller;
+    private final transaksiModel m;
+    private final Login view;
    
 
     public Jual() {

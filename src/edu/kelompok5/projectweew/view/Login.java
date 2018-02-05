@@ -20,10 +20,10 @@ import javax.swing.JTextField;
  */
 public class Login extends javax.swing.JFrame implements jualListener{
 
-private jualModel model;
-    private Controller controller;
-    private transaksiModel m;
-    private Jual view;
+private final jualModel model;
+    private final Controller controller;
+    private final transaksiModel m;
+    private final Jual view;
     /**
      * Creates new form Login
      */
